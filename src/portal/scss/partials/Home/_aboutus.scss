@@ -1,0 +1,32 @@
+
+
+.about-area{
+    padding: 100px 0;
+    .atitle{
+        font-size: 75px;
+        font-family: $boldfont;
+        text-transform: uppercase;
+        color: $lightgray ; 
+        line-height: 75px;
+        @include media-breakpoint-down(sm){
+            display: none;
+        }
+        @include media-breakpoint-only(md){
+            font-size: 46px;
+            line-height: 46px;
+        }
+    }
+}
+
+.title-red-border{
+    color: $lightgray ; 
+    font-family: $boldfont;
+ 
+    text-transform: uppercase;
+    
+    strong{
+        display: inline-block;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $red;
+    }
+}

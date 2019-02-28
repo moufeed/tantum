@@ -1,0 +1,98 @@
+html {overflow-x: hidden !important}
+body{
+    font-family: $regularfont;
+	font-weight: normal;
+	font-style: normal;
+	direction: $dir;
+	text-align: $left;
+	padding: 0;
+}
+.bg-black{
+	background: $black;
+}
+.light-gray-bg{
+	background: $gray-bg;
+}
+.g_title{
+	color: $light_text;
+}
+$i : 1;
+@each $size in $ont-sizes{
+	.fz-#{$i}{
+		font-size: $size;  
+	}
+	$i :$i + 1;
+}
+
+.red_title{
+	color: $red;
+}
+
+.form-control.is-invalid, .was-validated .form-control:invalid{
+	background-position : center $right calc(.375em + .1875rem); 
+} 
+
+ 
+.back-to-top {
+ 
+    background: rgba($gray , .80);
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    display: none;
+    position: fixed;
+    z-index: 999;
+    #{$right}: 15px;
+    bottom: 15px;
+    transition: all 0.2s;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 45px;
+	i {
+		font-size: 18px;
+		font-size: 1.125rem;
+		color: #fff;
+		  
+	}
+	&:hover {
+		background-color: $gray ;
+	}
+	
+}
+
+
+@include if-rtl{
+	@media screen and (max-width :1023px){
+	 
+			.tp-parallax-wrap{
+				right: 150px !important;
+			  }
+	 
+	}
+
+	@media screen and (max-width :767px){
+		.tp-parallax-wrap{
+			right: 74px !important;
+		  }
+	}
+}
+//style=""
+
+
+
+.title-caption{
+	@media screen and (max-width :767px){
+	 
+				min-width:350px; 
+				max-width:80%;
+				white-space: pre-line !important; 
+		  
+	}
+}
+
+.txt-caption{
+	min-width:350px;
+	max-width:80%;
+	white-space: pre-line !important;
+}

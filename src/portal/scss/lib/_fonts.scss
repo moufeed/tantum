@@ -1,0 +1,25 @@
+@mixin font($font-family, $font-file) {
+    @font-face {
+      font-family: $font-family;
+      src:  url($font-file) format('truetype');
+  }
+}
+  
+
+@include if-ltr{ 
+    @include font('myriad-regular', '#{$font}/myriad/MYRIADPRO-REGULAR.OTF');
+    @include font('myriad-bold', '#{$font}/myriad/MYRIADPRO-BOLD.OTF');
+  }
+
+  @include if-rtl{
+    @import url("https://fonts.googleapis.com/earlyaccess/droidarabickufi.css");
+  } 
+ 
+  
+ 
+
+
+$bootstrapfont :-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+
+$regularfont : if-ltr(myriad-regular,'Droid Arabic Kufi') , $bootstrapfont;
+$boldfont : if-ltr('myriad-bold','Droid Arabic Kufi'), sans-serif;

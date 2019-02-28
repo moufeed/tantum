@@ -1,0 +1,27 @@
+
+
+<if include-if="ViewBag.aboutSummary != null">
+    <section class="about-area" id="about-area">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-12 col-md-7 ">
+                    <div class="page-summary">
+                        @Html.Raw(ViewBag.aboutSummary.Summary)
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 ">
+                    <h4 class="atitle">@Localizer["our_business"]</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+</if>
+
+
+
+
+
+
+
+

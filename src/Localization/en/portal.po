@@ -1,0 +1,67 @@
+msgid "website_title"
+msgstr "Tan tum"
+
+msgid "our_business"
+msgstr "our<br/>Business"
+
+msgid "copyright"
+msgstr "Copyright © {0} <span>Tantum projects CO</span> - All Rights Reserved"
+
+msgid "keep_in_touch"
+msgstr "keep in touch"
+
+
+
+msgid "your_name"
+msgstr "Your name"
+
+msgid "your_email_address"
+msgstr "Your email address"
+
+msgid "your_phone_number"
+msgstr "Your phone number"
+
+msgid "your_subject"
+msgstr "Your subject"
+
+msgid "your_message"
+msgstr "Write your message here"
+
+msgid "contact_us"
+msgstr "Contact us"
+ 
+msgid "phone"
+msgstr "Phone"
+ 
+msgid "email"
+msgstr "Email"
+
+msgid "work_time"
+msgstr "Work time"
+
+msgid "Sunday_to_Thursday"
+msgstr "Sunday to Thursday"
+  
+ 
+msgid  "We_have_received_your_message"
+msgstr "We have received your message and would like to thank you for writing to us. If it's urgent, You can also use the mobile number to talk to us."
+
+msgid "depratments"
+msgstr "Subsidiaries"
+
+msgid "offices"
+msgstr "Offices"
+
+# app settings 
+
+msgid "m_work_time"
+msgstr "9:00 AM – 7:00 PM"
+
+msgid "phone_number"
+msgstr "0112002335"
+
+msgid "email_address"
+msgstr "info@tantumproj.com"
+
+msgid "MissionVisionSliderKey"
+msgstr "mission_vision"

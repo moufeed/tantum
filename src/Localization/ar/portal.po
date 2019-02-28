@@ -1,0 +1,69 @@
+msgid "website_title"
+msgstr "تان توم"
+
+msgid "our_business"
+msgstr "أعمالنا"
+
+msgid "copyright"
+msgstr " جميع الحقوق محفوظة لصالح <span>تان توم للمشاريع</span> © {0}"
+
+msgid "keep_in_touch"
+msgstr "تواصل معنا"
+
+
+
+msgid "your_name"
+msgstr "الاسم"
+
+msgid "your_email_address"
+msgstr "البريد الألكتروني"
+
+msgid "your_phone_number"
+msgstr "رقم الهاتف"
+
+msgid "your_subject"
+msgstr "العنوان"
+
+msgid "your_message"
+msgstr " اكتب رسالتك هنا"
+
+msgid "contact_us"
+msgstr "تواصل معنا"
+ 
+msgid "phone"
+msgstr "الهاتف"
+ 
+msgid "email"
+msgstr "البريد الالكتروني"
+
+
+msgid "work_time"
+msgstr "أوقات العمل"
+
+msgid "Sunday_to_Thursday"
+msgstr "الأحد إلى الخميس"
+ 
+ 
+msgid  "We_have_received_your_message"
+msgstr "لقد تم استلام رسالتك شكرا لك اذا كان الموضوع  لايحتمل التاخير يمكنك التواصل معنا على رقم الهاتف"
+
+msgid "depratments"
+msgstr "الفروع"
+
+msgid "offices"
+msgstr "المكاتب"
+
+
+# app settings 
+ 
+msgid "m_work_time"
+msgstr "٩ صباحاً حتى ٨ مساءً"
+
+msgid "phone_number"
+msgstr "0112002335"
+
+msgid "email_address"
+msgstr "info@tantumproj.com"
+
+msgid "MissionVisionSliderKey"
+msgstr "mission_vision"

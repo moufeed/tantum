@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = Localizer["website_title"];
+    Layout = "_Layout";
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+}
+
+
+
+<partial name="partials/Index/_slider.cshtml" />
+<partial name="partials/Index/_about.cshtml" />
+<partial name="partials/Index/_mission.cshtml" />
+<partial name="partials/Index/_departments.cshtml" />
+<partial name="partials/Index/_contact.cshtml" />
+<partial name="partials/Index/_offices.cshtml" />
+
+
+
+
+@section footer{
+<script>
+    var site_lang = "@lang";
+</script>
+    <script src="~/Portal/js/slider.min.js"></script>
+    <script src="~/Portal/js/validation.min.js"></script>
+    <script src="~/Portal/js/carousel.min.js"></script>
+}
+
+@section Styles{
+    <link href="~/Portal/css/slider.min.css" rel="stylesheet" />
+}

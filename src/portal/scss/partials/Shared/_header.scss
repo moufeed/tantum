@@ -1,0 +1,122 @@
+.nav-link{
+    color: $black;
+}
+.main_logo{
+    display: inline-block;
+    margin-bottom: 15px;
+}
+.main_menu{
+    padding-bottom: 0;
+    @media screen and (max-width : 767px){
+        margin-top: -75px;
+        .navbar-nav{
+            margin: 0 !important;
+            padding: 0;
+        }
+    }
+    .nav-link{
+        border-bottom: 4px solid  transparent;
+        transition: all .2s;
+        @include media-breakpoint-up(lg) {
+            padding-right: rem(10px) !important;
+            padding-left: rem(10px) !important;
+        }
+        &:hover,&.active{
+            border-bottom-color: $red;
+        }
+
+        @include media-breakpoint-down(sm){
+            border-bottom:1px solid  $lightgray;
+
+            &.dropdown-toggle{
+                &:after{
+                    @include absolute(top $right , 20px 0);
+                }
+            }
+        }
+    }
+}
+
+.lanugages-list{
+    @include media-breakpoint-down(md){
+        top: 20px;
+        #{$right}: 0;
+    }
+    .btn-link{
+        color: $black;
+        border:2px solid transparent;
+        transition: all .2s;
+        &:after{
+            border-top-color: $red;
+        }
+        &:hover{
+            text-decoration: none;
+            border-color: $dark_text;
+        }
+    }
+    @include media-breakpoint-down(md){
+        .dropdown-menu{
+            #{$left} : auto;
+            #{$right} : 0; 
+        }
+    }
+}
+.dropdown-menu {
+    border-radius: 0; 
+}
+.dropdown-item{
+    transition: all .2s;
+    &:hover,&:focus{
+        background: $dark_text;
+        color: $white;
+
+    }
+}
+
+.navbar-toggler{
+    padding: rem(10px) 0;
+}
+
+
+.sticky {
+    left: 0;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.07);
+    z-index: 9999;
+    animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
+    box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
+    @include keyframe(fadeInDown){
+        from {  
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+          }
+        
+          to {
+            opacity: 1;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+          }
+    }
+}  
+
+.main-header{
+    &.sticky{
+        background: #fff;
+        .lanugages-list{
+            display: none !important;
+        }
+        .row.pt-5{
+            padding-top: 0 !important ;
+        }
+        .main_logo{
+            margin-top: 15px;
+            img{
+                width: 100px;
+            }
+        }
+    }
+}

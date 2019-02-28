@@ -1,0 +1,40 @@
+
+@using TamTechSDK.Common.Services.ContentService.Sliders.Models;
+@{
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+}
+<if include-if="ViewBag.MissionVisionSlider != null">
+    @{
+        SliderDto Slider = (SliderDto)ViewBag.MissionVisionSlider;
+    }
+    <section class="light-gray-bg   mission-area" id="mission-area">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <header class="text-center mb-5">
+                        <h2 class="red_title text-uppercase fz-3" >@Slider.Title</h2>
+                        <p>
+                            @Html.Raw(Slider.Summary)
+                        </p>
+                    </header>
+
+                    <div class="owl-carousel mission_slider" data-rtl="@((lang == "ar" ? "true" : "false" ))">
+                        @foreach (SliderItemDto item in Slider.Items)
+                        {
+                            <div class="slide_item">
+                                <if include-if="(!string.IsNullOrEmpty(item.MainImage))">
+                                    <img src="@item.MainImage" alt="@item.Title" />
+                                </if>
+                                <h3>@item.Title</h3>
+                                <p class="breif">
+                                    @Html.Raw(item.Summary)
+                                </p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</if>
+ 

@@ -1,0 +1,59 @@
+
+$img:"../img/";
+$font:"../fonts";
+
+
+  
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+$fa-font-path: "../fonts/fa";
+
+ 
+$red :#e11f26;
+$darkred :#c0002d;
+
+$green :#86c04a;
+$darkgreen : #009484;
+
+$lighblue :#5fcee8;
+$blue :#2265e0;
+$darkblue :#026e9d;
+
+$gray : #6d6d6d;
+$lightgray :#E0DFE0;
+
+$gray-bg:#EFEEEF;
+
+$departments_color : 
+rgba($red,.85) 
+rgba( $darkgreen,.85) 
+rgba( $darkblue,.85) 
+
+rgba( $lighblue,.85) 
+rgba( $green ,.85) 
+rgba($darkred ,.85)
+
+rgba($red,.85) 
+rgba( $darkgreen,.85) 
+rgba( $darkblue,.85) 
+
+rgba( $lighblue,.85) 
+rgba( $green ,.85) 
+rgba($darkred ,.85)
+
+rgba( $gray,.85) 
+rgba( $blue,.85) 
+;
+
+$light_text:#A2AEBB;
+$medium_text :#999999;
+$dark_text :#363636;
+
+
+$white :white;
+$black :black;
+
+
+$ont-sizes :  1rem 1.5rem 2rem 2.5rem 3rem 3.5rem 4rem 4.5rem 5rem;

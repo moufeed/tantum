@@ -1,0 +1,51 @@
+
+@using TamTechSDK.Common.Services.ContentService.Sliders.Models;
+@{
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+}
+
+<if include-if="ViewBag.publicMainSlider != null">
+   
+        @{ 
+            SliderDto mainSlider = (SliderDto)ViewBag.publicMainSlider;
+        }
+
+
+        <if include-if="mainSlider.Items != null && mainSlider.Items.Count > 0">
+
+            <section class="slider-area" id="slider-area"   >
+
+             @{    var x = (lang == "ar") ? 1170 : 0; }
+
+                <div class="rev_slider_wrapper fullwidthbanner-container">
+                    <div id="main_slider" class="rev_slider fullwidthabanner" data-version="5.4.5" style="display:none">
+                        <ul>
+                            @foreach (var item in mainSlider.Items)
+                            {
+                                <li data-transition="random" >
+                                    <img src="@item.MainImage" alt="" class="rev-slidebg">
+                                    <div class="tp-caption top-label tp-resizeme very_large_text title-caption"
+                                         data-x="['@x','100','center','center']"
+                                         data-y="['230','230','50','50']"
+                                         data-start="500"
+                                         data-fontsize="['50', '40', '22', '50']" 
+                                         data-transform_in="y:[-300%];opacity:0;s:500;"><span>@item.Title</span></div>
+
+                                        <div class="tp-caption tp-resizeme medium_text txt-caption" 
+                                             data-x="['@x','100','center','center']"
+                                             data-y="['300','300','300','250']"
+                                             data-start="600"
+                                             data-fontsize="['20', '20', '22', '24']" 
+                                             data-transform_in="y:[100%];s:500;" >
+                                            <span style="line-height: 26px;">@Html.Raw(item.Summary)</span></div>
+                                        </li>
+                                    }
+                        </ul>
+
+                    </div>
+                </div>
+
+            </section>
+        </if>
+</if>
+

@@ -1,0 +1,67 @@
+﻿
+<section class="light-gray-bg contact-area" id="contact-area">
+    <div class="container">
+        <header class="text-center mb-5">
+            <h2 class="g_title text-uppercase fz-5">
+                <strong> @Localizer["keep_in_touch"]</strong>
+            </h2>
+        </header>
+         
+        <div class="row justify-content-between mt-2">
+            <div class="col-12 col-md-8 col-lg-7">
+
+                <form asp-action="contactus" method="post" class="form-contact" id="ContactForm">
+
+                    <div class="form-row form-group">
+                        <div class="col col-md-6">
+                            <input type="text" class="form-control" name="Name" placeholder="@Localizer["your_name"]" required>
+                        </div>
+
+                        <div class="col-12 col-md-6">
+                            <input type="email" class="form-control" name="Email" placeholder="@Localizer["your_email_address"]" required>
+                        </div>
+
+                    </div>
+
+
+                    
+
+                    <div class="form-row form-group">
+                        <div class="col-12 col-md-6">
+                            <input type="text" class="form-control" name="Subject" placeholder="@Localizer["your_subject"]" required>
+                        </div>
+                        <div class="col col-md-6">
+                            <input type="tel" class="form-control" name="Mobile" placeholder="@Localizer["your_phone_number"]">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3" style="position:relative">
+                        <textarea class="form-control" rows="5" name="Message" placeholder="@Localizer["your_message"]"></textarea>
+                        <button type="submit" class="float-btn">
+                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                            <i class="fa fa-spinner fa-pulse d-none"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="alert alert-success alert-dismissible fade d-none" role="alert" id="alert-success">
+                    @Localizer["We_have_received_your_message"]
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4">
+                <div class="mb-4">
+                    <h4>@Localizer["contact_us"]</h4>
+                    <p>@Localizer["phone"] : <span dir="rtl">@Localizer["phone_number"]</span></p>
+                    <p>@Localizer["email"] : <a href="mailto:@Localizer["email_address"]" class="text-lowercase" >@Localizer["email_address"]</a></p>
+                </div>
+                <div>
+                    <h4>@Localizer["work_time"]</h4>
+                    <p>@Localizer["Sunday_to_Thursday"] : @Localizer["m_work_time"]</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

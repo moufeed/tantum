@@ -1,0 +1,127 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Localization;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using TamTechBackendSDK.EmailService.Services;
+using TamTechSDK.Common.Models.ContactUs;
+using TamTechSDK.Common.Services.ContentService.City;
+using TamTechSDK.Common.Services.ContentService.Galleries;
+using TamTechSDK.Common.Services.ContentService.Menus;
+using TamTechSDK.Common.Services.ContentService.Pages;
+using TamTechSDK.Common.Services.ContentService.Posts;
+using TamTechSDK.Common.Services.ContentService.Posts.Models;
+using TamTechSDK.Common.Services.ContentService.Request;
+using TamTechSDK.Common.Services.ContentService.Services;
+using TamTechSDK.Common.Services.ContentService.Sliders;
+using TamTechSDK.Common.Services.ContentService.Testimonials;
+using TamTechSDK.Common.Services.Email;
+using TamTechSDK.Common.Services.Upload;
+using TamTechSDK.Web;
+using TamTechSDK.Web.Controllers.Portal;
+using TamTechSDK.Web.Services.Configurations.AppSetting;
+using TamTechSDK.Web.Services.Telemetry;
+
+namespace tantum.Areas.Portal.Controllers
+{
+
+    public class HomeController : HomeBaseController
+    {
+        private readonly IPageService _pageService;
+        private readonly IWebApplicationSettingsService _appSettingsService;
+        private readonly ISlidersServices _sliderService;
+        private readonly IGalleriesService _GalleriesService;
+        private readonly IPostsService _postservice;
+        private readonly IServicesService _servicesservice;
+        private readonly ITestimonialsServices _TestimonialsServices;
+        private IStringLocalizer<PublicBaseController> _localizer;
+        public HomeController(ITelemetryClientService telemetryClientService,
+                               IPageService pageService,
+                               IMenusServices menusServices,
+                               IConfiguration configuration,
+                               IEmailSenderService emailSender, IWebApplicationSettingsService appSettingsService, IServicesService servicesservice,
+                               ISlidersServices sliderService,
+                               IRequestService requestService,
+                               ICityService cityService,
+                               IGalleriesService GalleriesService,
+                               IPostsService postservice,
+                               ITestimonialsServices testimonialservices,
+                               IStringLocalizer<PublicBaseController> localizer,
+                               IUploadManagerService uploadManager,
+                               ITestimonialsServices TestimonialsServices)
+                               : base(telemetryClientService, pageService,
+                                        menusServices, configuration, emailSender, appSettingsService,
+                                        servicesservice, sliderService, requestService, cityService, testimonialservices, uploadManager, localizer)
+
+        {
+
+
+            _TestimonialsServices = TestimonialsServices;
+            _pageService = pageService;
+            _appSettingsService = appSettingsService;
+            _GalleriesService = GalleriesService;
+            _sliderService = sliderService;
+            _postservice = postservice;
+            _servicesservice = servicesservice;
+            _localizer = localizer;
+        }
+
+        public override async Task<IActionResult> Index()
+        {
+            try
+            {
+                //var testimonial = await _TestimonialsServices.GetPublicListAsync(true);
+                //if (testimonial.Success)
+                //{
+                //    ViewBag.testimonials = testimonial.Data;
+                //}
+                var publicMainSlider = await _sliderService.GetPublicByKeyAsync(_appSettingsService.GetHomePageMainSliderKey());
+                if (publicMainSlider.Success)
+                {
+                    ViewBag.publicMainSlider = publicMainSlider.Data;
+                }
+
+                var MissionVisionSlider = await _sliderService.GetPublicByKeyAsync(_localizer["MissionVisionSliderKey"]);
+                if (MissionVisionSlider.Success)
+                {
+                    ViewBag.MissionVisionSlider = MissionVisionSlider.Data;
+                }
+
+                //ViewBag.Posts = await _postservice.GetPublicListAsync(4);
+                //ViewBag.galleries = await _GalleriesService.GetPublicListAsync(4);
+
+                var aboutSummary = await _pageService.GetPublicPageSummaryByIdAsync(_appSettingsService.GetHomePageSummuryId());
+
+                if (aboutSummary.Success)
+                {
+                    ViewBag.aboutSummary = aboutSummary.Data;
+                }
+
+                var services = await _servicesservice.GetPublicListAsync(8, true);
+
+                if (services.Success)
+                {
+                    ViewBag.services = services.Data;
+                }
+
+                //var publicClientsSlider = await _sliderService.GetPublicByKeyAsync(_appSettingsService.GetHomePageCarouselSliderKey());
+
+                //if (publicClientsSlider.Success)
+                //{
+                //    ViewBag.publicClientsSlider = publicClientsSlider.Data;
+                //}
+
+
+            }
+            catch (Exception ex)
+            {
+                TrackException(ex);
+            }
+
+
+
+            return base.View();
+        }
+    }
+}

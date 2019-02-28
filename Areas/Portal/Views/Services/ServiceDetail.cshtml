@@ -1,0 +1,38 @@
+﻿@model ServiceDto
+@{
+    ViewData["Title"] = Localizer["Services"];
+    Layout = "_Layout";
+    ViewData["ImageURl"] = @Model.MainImage;
+
+    ViewData["pageTitle"] = Model.Title;
+
+    ViewBag.ItemId = Model.Id;
+    ViewBag.Action = "edit";
+}
+ 
+
+@section SEO{
+    <meta name="description" content="@Html.Raw(Model.MetaDescription)" />
+    <partial name="~/Areas/Portal/Views/Shared/partials/_SEO.cshtml" model="Model.SEOMarkup" />
+}
+ 
+
+<section class="section-page py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col ">
+                    <div class="text-center">
+                        @if (!string.IsNullOrEmpty(Model.MainImage))
+                        {
+                            <img src="@Model.MainImage" alt="" class="img-fluid mb-5" style="max-height:500px" />
+                        }
+                    </div>
+                    <header>
+                        <h1>@Model.Title</h1>
+                    </header>
+                    @Html.Raw(Model.Content)
+                </div>
+            </div> 
+        </div>
+    </section>
+

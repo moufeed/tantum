@@ -1,0 +1,33 @@
+﻿@model string
+@{
+    string _lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    var controller = ViewContext.RouteData.Values["Controller"].ToString();
+    var action = ViewContext.RouteData.Values["Action"].ToString();
+    var routeValues = ViewBag.LanguageTabsRouteValues != null ? (Microsoft.AspNetCore.Routing.RouteValueDictionary)ViewBag.LanguageTabsRouteValues : new Microsoft.AspNetCore.Routing.RouteValueDictionary(); ;
+    routeValues.Add("culture", _lang);
+}
+<if include-if="CultureConstants.CulturesList?.Count > 1">
+    <div class="dropdown lanugages-list @Model ">
+
+
+        <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @foreach (var culture in CultureConstants.CulturesList)
+            {
+                @if (_lang == culture.Lang)
+                {
+                    @culture.Name
+                }
+            }
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @foreach (var culture in CultureConstants.CulturesList)
+            {
+                routeValues["culture"] = culture.Lang;
+                @if (_lang != culture.Lang)
+                {
+                    <a href="@Url.AdminUrl("index","home",routeValues)" class="dropdown-item"> @culture.Name </a>
+                }
+            }
+        </div>
+    </div>
+</if>

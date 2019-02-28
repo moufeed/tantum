@@ -1,0 +1,46 @@
+
+.main-footer{
+    padding: rem(75px) 0 rem(25px);
+    background:$black url('#{$img}footerbackground.png') 0 0 no-repeat; 
+}
+
+.social-bar{
+    margin: rem(20px) 0;
+    a{
+        color: $white;
+        font-size: rem(25px);
+        display: inline-block;
+        @include square(40px);
+        transition: all .3s;
+        &:hover{
+            color: $red;
+        }
+    }
+}
+.copyright{
+    span{
+        color: $red;
+    }
+}
+
+/*
+<footer class="bg-black main-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <img src="~/Portal/img/light-logo.png" alt="tantum logo" />
+
+                <nav class="">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </nav>
+
+                <p class=" text-light">@Localizer["copyright", DateTime.Now.Year.ToString() ]</p>
+            </div>
+        </div>
+    </div>
+</footer>
+*/

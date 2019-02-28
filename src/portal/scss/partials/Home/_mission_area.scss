@@ -1,0 +1,72 @@
+
+.mission-area{
+    padding: rem(75px) 0;
+    header{
+        p{
+            width: 80%;
+            margin: auto;
+        }
+    }
+    .owl-stage{
+        padding: 15px 0;
+
+    }
+    .slide_item{
+        background: $white;
+        box-shadow:  0 0 8px rgba(0,0,0,0.2);
+        margin: 0 25px;
+        padding: 15px;
+        text-align: center;
+        padding-top: 50px;
+        img{
+            width: 125px;
+            display: inline-block;
+        }
+        h3{
+            @include ellipse(24px ,1.2 ,2);
+            text-transform: capitalize; 
+        }
+        p{
+            color: $medium_text;
+            margin: 15px 0;
+            @include if-ltr{
+                @include ellipse(14px ,1.4 ,4);
+            }
+            @include if-rtl{
+                word-spacing: 3px;
+                @include ellipse(14px ,1.6 ,3);
+            } 
+        }
+    }
+}
+.owl-dots{
+    text-align: center;
+    .owl-dot{
+       span{
+           margin: 3px;
+           display: block;
+            @include square(8px);
+            background: $gray;
+            border-radius: 50%;
+        
+       }
+       &.active{
+       span{
+        background: $red;
+       }
+    }
+    }
+}
+/*
+<div class=""><button role="button" class=" "><span></span></button><button role="button" class="owl-dot"><span></span></button></div>
+ <div class="">
+                                <if include-if="(!string.IsNullOrEmpty(item.MainImage))">
+                                    <img src="@item.MainImage" alt="@item.Title" />
+                                </if>
+                                <h3>@item.Title</h3>
+                                <p class="breif">
+                                    @Html.Raw(item.Summary)
+                                </p>
+                            </div>
+ 
+*/
