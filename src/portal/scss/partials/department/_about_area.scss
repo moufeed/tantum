@@ -1,0 +1,26 @@
+
+.suumary-area{
+    color: lighten($dark_text  ,10%);
+    h3{
+        font-family: $boldfont;
+        text-transform: capitalize;
+        margin-bottom: rem(15px);
+    }
+    p{
+         font-size: rem(16px);
+         letter-spacing: 1px;
+    }
+}
+
+.about-area{
+    padding: rem(25px) 0  rem(40px);
+    img{
+        max-width: 370px;
+        width: 100%;
+    }
+
+    @include media-breakpoint-down(sm){
+        padding: rem(15px) 0  rem(15px);
+        
+    }
+}

@@ -42,8 +42,8 @@ namespace tantum.DirectBackendServices.ContentServices.Pages
             if (backendpage == null) return null;
             var page = backendpage?.MapToFrontendDto();
             if (backendpage.Type == (int)PageTypeEnum.Html)
-                page.HtmlContent = ((TamTechBackendSDK.ContentService.Services.Pages.Dtos.HtmlPageDto)backendpage).Content;
-            else
+                page.HtmlContent = ( (TamTechBackendSDK.ContentService.Services.Pages.Dtos.HtmlPageDto)backendpage).Content  ;
+              else
                 page.SectionsContent = ((TamTechBackendSDK.ContentService.Services.Pages.Dtos.SectionsPageDto)backendpage).Content;
             return page;
         }
@@ -55,11 +55,11 @@ namespace tantum.DirectBackendServices.ContentServices.Pages
         //}
 
         public async Task<IRequestProviderResult<PageSummary>> GetPublicPageSummaryByIdAsync(Guid id)
-        {
-            var result = await _pageService.GetPublicByIdAsync(id);
+        { 
+            var result = await _pageService.GetPublicByIdAsync( id);
             return ReturnResult(result?.MapToPageSummaryFrontend());
         }
-
+         
 
         #endregion
 
@@ -90,21 +90,21 @@ namespace tantum.DirectBackendServices.ContentServices.Pages
             return ReturnResult(pages);
         }*/
 
-
-        public async Task<IRequestProviderResult<PagesList>> GetAllAsync(PaginationModel pagination, Dictionary<string, object> searchParams, SortingModel sorting, string lang)
+         
+        public  async Task<IRequestProviderResult<PagesList>> GetAllAsync(PaginationModel pagination, Dictionary<string, object> searchParams, SortingModel sorting, string lang)
         {
 
-
-            var result = await _pageService.GetAllExceptSoftDeletedAsync(pagination.MapToBackendPaginationModel(), searchParams, sorting.MapToBackendSortingModel(), lang);
-
+            
+             var result = await _pageService.GetAllExceptSoftDeletedAsync(pagination.MapToBackendPaginationModel(), searchParams, sorting.MapToBackendSortingModel(), lang);
+            
             PagesList model = new PagesList
             {
-                Data = result.Data != null ? result.Data.Select(m => m.MapToFrontendDto()).ToList() : new List<PageDto>(),
+                Data = result.Data != null  ? result.Data.Select(m => m.MapToFrontendDto()).ToList() : new List<PageDto>(),
                 Pagination = result.Pagination?.MapToForntEndPagination()
             };
 
             return ReturnResult(model);
-
+             
         }
 
 
@@ -166,7 +166,7 @@ namespace tantum.DirectBackendServices.ContentServices.Pages
             return MapRequestProviderResult(result);
         }
 
-
+       
 
         #endregion
 

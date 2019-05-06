@@ -182,11 +182,17 @@
                                 <span asp-validation-for="DisplayOrder" class="text-danger invalid_field"></span>
                             </div>
                         </div>
-
+                       
+                           
                         <div class="form-group clearfix">
                             <label asp-for="Section" class="control-label col-md-2 col-sm-3 col-xs-12 ">@Localizer["f_section"]</label>
                             <div class="col-md-10 col-lg-9 col-sm-9 col-xs-12">
-                                <input asp-for="Section" class="form-control" />
+                                @using tantum.Custom
+                                @{
+                                    List<SelectListItem> selectList = Departments.DepartmentsList
+                                        .Select(D => new SelectListItem { Text = Localizer[D].Value, Value = Localizer[D].Value }).ToList();
+                                }
+                                <select asp-items="selectList" asp-for="Section" class="form-control" id="test"></select>
                                 <span asp-validation-for="Section" class="text-danger invalid_field"></span>
                             </div>
                         </div>

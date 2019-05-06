@@ -16,7 +16,7 @@ namespace tantum.DirectBackendServices.ContentServices.Posts.Mapper
                 Lang = frontend.Lang,
                 MainImage = frontend.MainImage,
                 Section = frontend.Section,
-                SectionId = frontend.SectionId,
+                SectionId =frontend.SectionId,
                 Slug = frontend.Slug,
                 Summary = frontend.Summary,
                 Title = frontend.Title,
@@ -38,8 +38,8 @@ namespace tantum.DirectBackendServices.ContentServices.Posts.Mapper
                 Slug = frontend.Slug,
                 Summary = frontend.Summary,
                 Title = frontend.Title,
-                SectionId = frontend.SectionId,
-                SectionName = frontend.Section,
+                SectionId=frontend.SectionId,
+                SectionName= frontend.Section,
                 MetaDescription = frontend.MetaDescription,
                 SEOMarkup = frontend.SEOMarkup,
                 Tags = frontend.Tags,
@@ -48,7 +48,7 @@ namespace tantum.DirectBackendServices.ContentServices.Posts.Mapper
         }
 
 
-        public static TamTechSDK.Common.Services.ContentService.Posts.Models.PostDto MapToFrontendDto(this TamTechBackendSDK.ContentService.Services.Posts.Dtos.PostDto backend)
+        public static TamTechSDK.Common.Services.ContentService.Posts.Models.PostDto MapToFrontendDto(this TamTechBackendSDK.ContentService.Services.Posts.Dtos.PostDto backend )
         {
             return new TamTechSDK.Common.Services.ContentService.Posts.Models.PostDto
             {
@@ -69,11 +69,12 @@ namespace tantum.DirectBackendServices.ContentServices.Posts.Mapper
                 ModifiedDate = backend.ModifiedDate,
                 Locked = backend.Locked,
                 PublishedDate = backend.PublishedDate,
-                AuthorName = backend.AuthorName,
+                AuthorName =backend.AuthorName,
                 SectionSlug = backend.SectionSlug,
-                ViewsCount = backend.VisitorsCount,
-                PostDate = backend.CustomDate
-                //Tags = backend.Tags
+                ViewsCount =  backend.VisitorsCount,
+                PostDate =backend.CustomDate,
+                //Tags = backend.Tags,
+                Slugs = backend.Slugs?.Select(m => m.MapSlugsToFrontend()).ToList()
             };
         }
 

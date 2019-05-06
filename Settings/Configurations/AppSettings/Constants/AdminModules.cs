@@ -20,7 +20,7 @@ namespace tantum.Settings.Configurations.AppSettings.Constants
 
         public const bool SlidersModule = true;
 
-        public const bool GalleriesModule = false;
+        public const bool GalleriesModule = true;
 
         public const bool PostsModule = false;
 

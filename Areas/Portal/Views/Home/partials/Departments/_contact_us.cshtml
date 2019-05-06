@@ -1,0 +1,77 @@
+﻿@{
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+}
+<section class="contactus-area py-5" id="d-contactus">
+    <div class="container">
+        <header class="col-12 text-center title-section">
+            <h1 class="fz-7">@Localizer["contact_us_title"] </h1>
+            <p>@ViewData["contact_us_text"]</p>
+        </header>
+        <div class="row my-4">
+            <div class="col-md-4 text-center">
+                <div class="contact-item">
+                    <i class="fa fa-map-marker fz-9"></i>
+                    <address>
+                        @ViewData["contact_address"]
+                    </address>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-item text-center">
+                    <i class="fa fa-envelope-o fz-9"></i>
+                    <div>
+                        <if include-if='!string.IsNullOrEmpty(ViewData["contact_email_a"].ToString())'>
+                            <a href="mailto:@ViewData["contact_email_a"]">@ViewData["contact_email_a"]</a>
+                        </if>
+                        <if include-if='!string.IsNullOrEmpty(ViewData["contact_email_b"].ToString())'>
+                            <a href="mailto:@ViewData["contact_email_b"]">@ViewData["contact_email_b"]</a>
+                        </if>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-item text-center">
+                    <i class="fa fa-phone fz-9"></i>
+                    <div>
+                        <if include-if='!string.IsNullOrEmpty(ViewData["contact_phone_a"].ToString())'>
+                            <span dir="ltr">@ViewData["contact_phone_a"]</span>
+                        </if>
+                        <if include-if='!string.IsNullOrEmpty(ViewData["contact_phone_b"].ToString())'>
+                            <span dir="ltr">@ViewData["contact_phone_b"]</span>
+                        </if>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-success alert-dismissible fade d-none" role="alert" id="alert-success">
+            @Localizer["We_have_received_your_message"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <form asp-action="DepartmentsContactUs" method="post" class="contactus_form my-5" id="DepartForm">
+            <input type="hidden" name="department" value="@ViewBag.Department" />
+            <div class="form-group ">
+                <div class="form-row">
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control form-control-lg" name="Name" placeholder="@Localizer["your_name"]" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <input type="email" class="form-control form-control-lg" name="Email" placeholder="@Localizer["your_email_address"]" required>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <textarea class="form-control" rows="8" name="Message" placeholder="@Localizer["your_message"]" required></textarea>
+
+            </div>
+            <div class="form-group @(lang == "ar" ? "text-left" :"text-right")">
+                <button type="submit" class="btn btn-send ">@Localizer["send"]</button>
+            </div>
+        </form>
+
+    </div>
+</section>
+

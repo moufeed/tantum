@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 namespace tantum.DirectBackendServices.ContentServices
 {
     public static class Mapper
-    {
+    { 
 
-        public static TamTechBackendSDK.ContentService.Services.Shared.Dtos.PublishModel MapToBackend(this TamTechSDK.Common.Models.ContentItem.PublishDTO frontend)
+        public static TamTechBackendSDK.ContentService.Services.Shared.Dtos.PublishModel MapToBackend (this TamTechSDK.Common.Models.ContentItem.PublishDTO frontend)
         {
             return new TamTechBackendSDK.ContentService.Services.Shared.Dtos.PublishModel
             {
                 Id = frontend.Id,
                 Lang = frontend.Lang,
-
+                
             };
         }
 
@@ -74,6 +74,17 @@ namespace tantum.DirectBackendServices.ContentServices
             {
                 SortBy = item.SortBy,
                 Descending = item.Descending
+            };
+        }
+
+
+
+        public static TamTechSDK.Common.Models.Languages.SlugModel MapSlugsToFrontend(this TamTechBackendSDK.ContentService.Services.Shared.Dtos.SlugModel item)
+        {
+            return new TamTechSDK.Common.Models.Languages.SlugModel
+            {
+                Lang = item.Lang,
+                Slug = item.Slug
             };
         }
     }

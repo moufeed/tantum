@@ -1,0 +1,44 @@
+
+.clients-area{
+    .title-section{
+        margin: rem(25px) 0;
+        h1,h2{
+            margin-bottom: 0;
+        }
+    }
+}
+
+.clients_slider{
+    .slide_item{
+        height: rem(150px);
+        padding: rem(15px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            max-width:rem(150px);
+        }
+    }
+}
+
+/*
+ 
+ <div class=""><button role="button" class=""><span></span></button><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div>
+ 
+        <div class="row">
+            <div class="col-12">
+                    <div class="owl-carousel clients_slider" data-rtl="@((lang == "ar" ? "true" : "false" ))">
+                        @foreach (SliderItemDto item in Slider.Items)
+                        {
+                            <div class="">
+                                <img src="@item.MainImage" alt="@item.Title" />
+                            </div>
+                        }
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+</if>
+
+*/

@@ -1,0 +1,236 @@
+
+# app settings 
+
+msgid "m_work_time"
+msgstr "9:00 AM – 7:00 PM"
+
+msgid "phone_number"
+msgstr "0112002335"
+
+msgid "email_address"
+msgstr "info@tantumproj.com"
+
+msgid "MissionVisionSliderKey"
+msgstr "mission_vision"
+
+msgid "contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "contact_phone_a"
+msgstr "+96656716721"
+
+msgid "contact_phone_b"
+msgstr "+96640928731"
+
+
+# Construction
+msgid "Construction_aboutus_summary"
+msgstr "49ab8bcc-f61d-4159-933b-cdd4b150280e"
+
+msgid "constructions_clients_slider_key"
+msgstr "constructions_clients"
+
+msgid "Construction_contact_email"
+msgstr "info@tantumproj.com"
+
+msgid "construction_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "construction_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "construction_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "construction_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "construction_contact_phone_b"
+msgstr "+96640928731"
+
+
+# EventManagement
+msgid "EventManagement_contact_email"
+msgstr "info@tantumproj.com"
+
+msgid "Event_clients_slider_key"
+msgstr "Event_clients"
+
+msgid "Event_aboutus_summary"
+msgstr "594a9ea3-4c73-4052-82c0-127d4e0d135f"
+
+msgid "Event_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "Event_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "Event_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "Event_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "Event_contact_phone_b"
+msgstr "+96640928731"
+
+
+# DesignAndAnimation
+msgid "DesignAndAnimation_contact_email"
+msgstr "info@tantumproj.com"
+
+
+msgid "Design_clients_slider_key"
+msgstr "Design_clients"
+
+msgid "Design_aboutus_summary"
+msgstr "6fe37463-f9e8-452d-a667-dd21f09cd9db"
+
+msgid "Design_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "Design_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "Design_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "Design_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "Design_contact_phone_b"
+msgstr "+96640928731"
+
+
+# SmartSystems
+msgid "SmartSystems_contact_email"
+msgstr "info@tantumproj.com"
+
+msgid "smart_clients_slider_key"
+msgstr "smart_clients"
+
+msgid "smart_aboutus_summary"
+msgstr "b14997b0-4036-4157-aae5-cbce6d6ad8c4"
+
+msgid "smart_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "smart_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "smart_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "smart_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "smart_contact_phone_b"
+msgstr "+96640928731"
+
+# GiftItems
+msgid "GiftItems_contact_email"
+msgstr "info@tantumproj.com"
+ 
+msgid "GiftItems_clients_slider_key"
+msgstr "GiftItems_clients"
+
+msgid "GiftItems_aboutus_summary"
+msgstr "5704e555-423e-422c-a285-9fb7a0607956"
+
+msgid "GiftItems_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "GiftItems_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "GiftItems_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "GiftItems_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "GiftItems_contact_phone_b"
+msgstr "+96640928731"
+
+# SoftwareSolution
+msgid "SoftwareSolutions_contact_email"
+msgstr "info@tantumproj.com"
+
+msgid "SoftwareSolutions_clients_slider_key"
+msgstr "SoftwareSolutions_clients"
+
+msgid "SoftwareSolutions_aboutus_summary"
+msgstr "7fe3d1ca-5698-4fd9-8de7-784f9bfc8d1b"
+
+msgid "SoftwareSolution_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "SoftwareSolution_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "SoftwareSolution_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "SoftwareSolution_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "SoftwareSolution_contact_phone_b"
+msgstr "+96640928731"
+
+# telecommunications
+
+msgid  "Telecommunications_aboutus_summary"
+msgstr "6983cda5-3420-4848-9449-062a74fd3b1c"
+
+msgid "Telecommunications_clients_slider_key"
+msgstr "Telecommunications_clients"
+
+msgid "Telecommunications_contact_email"
+msgstr "info@tantumproj.com"
+
+msgid "Telecommunications_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "Telecommunications_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "Telecommunications_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "Telecommunications_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "Telecommunications_contact_phone_b"
+msgstr "+96640928731"
+
+# InteriorDesign
+
+msgid  "InteriorDesign_aboutus_summary"
+msgstr "ffaf07a8-bc66-41e1-884d-e6ff20f32b51"
+
+msgid "InteriorDesign_contact_email"
+msgstr "info@tantumproj.com"
+
+msgid "InteriorDesign_clients_slider_key"
+msgstr "InteriorDesign_clients"
+
+msgid "InteriorDesign_contact_address"
+msgstr "321 Awesome Street new york,ny 17022" 
+
+msgid "InteriorDesign_contact_email_a"
+msgstr "info@tantumproj.com"
+
+msgid "InteriorDesign_contact_email_b"
+msgstr "sales@tantumproj.com"
+
+msgid "InteriorDesign_contact_phone_a"
+msgstr "+96656716721"
+
+msgid "InteriorDesign_contact_phone_b"
+msgstr "+96640928731"

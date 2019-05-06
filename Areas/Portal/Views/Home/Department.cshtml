@@ -1,0 +1,33 @@
+﻿
+@{
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    ViewData["image"] = Url.Content($"~/Portal/img/departments/{@ViewBag.DepartmentFolder}/main.jpg");
+    ViewData["icon"] = Url.Content($"~/portal/img/departments/{@ViewBag.DepartmentFolder}/d-icon.png");
+}
+
+@{
+    List<SlugModel> mod = new List<SlugModel>();
+}
+<partial name="~/Areas/Portal/Views/Shared/partials/_Header.cshtml" model="mod" />
+
+<partial name="~/Areas/Portal/Views/Home/partials/Departments/_slider.cshtml">
+    <partial name="~/Areas/Portal/Views/Home/partials/Departments/_aboutarea.cshtml" />
+    <partial name="~/Areas/Portal/Views/Home/partials/Departments/_services.cshtml" />
+    <partial name="~/Areas/Portal/Views/Home/partials/Departments/_portfolio.cshtml" />
+    <partial name="~/Areas/Portal/Views/Home/partials/Departments/_our_clients.cshtml" />
+    <partial name="~/Areas/Portal/Views/Home/partials/Departments/_contact_us.cshtml" />
+
+
+    @section footer{
+        <script>
+    var site_lang = "@lang";
+        </script>
+        <script src="~/Portal/js/carousel.min.js"></script>
+        <script src="~/Portal/js/validation.min.js"></script>
+        <script src="~/Portal/js/magnific-popup.min.js"></script>
+        <script src="~/Portal/js/profile.min.js"></script>
+    }
+
+    @section Styles{
+
+    }

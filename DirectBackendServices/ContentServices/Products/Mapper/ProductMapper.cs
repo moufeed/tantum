@@ -16,11 +16,11 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Value = item.Value,
                 Price = item.Price,
                 Lang = item.Lang
-
+                
             };
         }
 
-        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto MapToBackendAttributeDto(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductAttribute item)
+        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto MapToBackendAttributeDto (this TamTechSDK.Common.Services.ContentService.Products.Models.ProductAttribute item)
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto
             {
@@ -38,20 +38,20 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 ProductId = item.ProductId,
                 Type = item.Type,
                 Name = item.Name,
-                Lang = item.Lang
+                 Lang = item.Lang
             };
         }
 
-        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeValueModel MapToBackendAttributeValueForm(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductAttributeValueForm item)
+        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeValueModel  MapToBackendAttributeValueForm(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductAttributeValueForm item)
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeValueModel
             {
-
+              
                 Value = item.Value,
                 AttributeName = item.AttributeName,
                 ProductId = item.ProductId,
                 Price = item.Price,
-                Lang = item.Lang
+                 Lang = item.Lang
             };
         }
 
@@ -60,7 +60,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeKeysDto
             {
                 Name = item.Name,
-                ProductId = item.ProductId,
+                ProductId = item.ProductId ,
                 Lang = item.Lang
             };
         }
@@ -69,9 +69,9 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeValueKeysDto
             {
-                AttributeName = item.AttributeName,
-                ProductId = item.ProductId,
-                Value = item.Value,
+                    AttributeName = item.AttributeName,
+                    ProductId =item.ProductId,
+                    Value = item.Value,
                 Lang = item.Lang
             };
         }
@@ -85,7 +85,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 OriginalName = item.OriginalName,
                 Name = item.Name,
                 ReturnProductCombinations = item.ReturnProductCombinations,
-                Lang = item.Lang
+              Lang = item.Lang
 
             };
         }
@@ -101,11 +101,11 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Value = item.Value,
                 Price = item.Price,
                 ReturnProductCombinations = item.ReturnProductCombinations,
-                Lang = item.Lang
+               Lang = item.Lang
             };
         }
 
-        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto MapToBackendCombinationDto(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductCombination item)
+        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto MapToBackendCombinationDto (this TamTechSDK.Common.Services.ContentService.Products.Models.ProductCombination item)
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto
             {
@@ -119,7 +119,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
             };
         }
 
-        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationModel MapToBackendCombinationFormDto(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductCombinationForm item)
+        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationModel  MapToBackendCombinationFormDto(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductCombinationForm item)
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationModel
             {
@@ -145,7 +145,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
             };
         }
 
-        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductDto MapToBackendDTO(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductForm item)
+        public static TamTechBackendSDK.ContentService.Dtos.Product.ProductDto MapToBackendDTO (this TamTechSDK.Common.Services.ContentService.Products.Models.ProductForm item)
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductDto
             {
@@ -171,12 +171,12 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Width = item.Width,
                 Height = item.Height,
                 Specifications = item.Specifications,
-                Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToBackendAttributeDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto>(),
+                Attributes = item.Attributes != null  ? item.Attributes.Select( m => m.MapToBackendAttributeDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto>() ,
                 Images = item.Images,
-                Combinations = item.Combinations != null ? item.Combinations.Select(m => m.MapToBackendCombinationDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto>(),
+                Combinations = item.Combinations != null  ? item.Combinations.Select(m => m.MapToBackendCombinationDto()).ToList()  : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto>() ,
                 MetaDescription = item.MetaDescription,
                 SEOMarkup = item.SEOMarkup,
-                Lang = item.Lang,
+                 Lang = item.Lang,
                 // PublishedDate = item.PublishedDate,
                 // ModifiedDate = item.ModifiedDate
             };
@@ -209,12 +209,12 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Width = item.Width,
                 Height = item.Height,
                 Specifications = item.Specifications,
-                //  Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToBackendAttributeDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto>(),
+              //  Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToBackendAttributeDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto>(),
                 Images = item.Images,
-                //  Combinations = item.Combinations != null ? item.Combinations.Select(m => m.MapToBackendCombinationDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto>(),
+              //  Combinations = item.Combinations != null ? item.Combinations.Select(m => m.MapToBackendCombinationDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto>(),
                 MetaDescription = item.MetaDescription,
                 SEOMarkup = item.SEOMarkup,
-                Lang = item.Lang,
+                 Lang = item.Lang,
                 // PublishedDate = item.PublishedDate,
                 // ModifiedDate = item.ModifiedDate
             };
@@ -223,7 +223,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
         public static TamTechBackendSDK.ContentService.Dtos.Product.CreateProductDto MapToBackendCreateDTO(this TamTechSDK.Common.Services.ContentService.Products.Models.ProductForm item)
         {
             return new TamTechBackendSDK.ContentService.Dtos.Product.CreateProductDto
-            {
+            { 
                 Name = item.Name,
                 Description = item.Description,
                 ShortDescription = item.ShortDescription,
@@ -245,9 +245,9 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Width = item.Width,
                 Height = item.Height,
                 Specifications = item.Specifications,
-                //      Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToBackendAttributeDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto>(),
+          //      Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToBackendAttributeDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductAttributeDto>(),
                 Images = item.Images,
-                //    Combinations = item.Combinations != null ? item.Combinations.Select(m => m.MapToBackendCombinationDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto>(),
+            //    Combinations = item.Combinations != null ? item.Combinations.Select(m => m.MapToBackendCombinationDto()).ToList() : new List<TamTechBackendSDK.ContentService.Dtos.Product.ProductCombinationDto>(),
                 MetaDescription = item.MetaDescription,
                 SEOMarkup = item.SEOMarkup,
                 Lang = item.Lang,
@@ -255,7 +255,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 // ModifiedDate = item.ModifiedDate
             };
         }
-        public static TamTechBackendSDK.ContentService.Services.Shared.Dtos.PublishModel MapToBackendPublishDt(this TamTechSDK.Common.Services.ContentService.Products.Models.PublishDto item)
+        public static TamTechBackendSDK.ContentService.Services.Shared.Dtos.PublishModel  MapToBackendPublishDt(this TamTechSDK.Common.Services.ContentService.Products.Models.PublishDto item)
         {
             return new TamTechBackendSDK.ContentService.Services.Shared.Dtos.PublishModel
             {
@@ -269,7 +269,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
             return new TamTechBackendSDK.ContentService.Dtos.Product.ProductImagesKeysDto
             {
                 ProductId = item.ProductId,
-                images = item.images,
+                images = item.images ,
                 Lang = item.Lang
             };
         }
@@ -290,7 +290,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Price = item.Price,
                 DiscountPrice = item.DiscountPrice,
                 Published = item.Published,
-                Lang = item.Lang,
+                  Lang = item.Lang,
             };
         }
 
@@ -363,7 +363,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 //ModifiedDate = item.ModifiedDate
             };
         }
-
+        
         public static TamTechSDK.Common.Services.ContentService.Products.Models.ProductForm MapToFrontendProductForm(this TamTechBackendSDK.ContentService.Dtos.Product.ProductDto item)
         {
             return new TamTechSDK.Common.Services.ContentService.Products.Models.ProductForm
@@ -390,7 +390,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
                 Width = item.Width,
                 Height = item.Height,
                 Specifications = item.Specifications,
-                Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToFrontendAttribute()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Products.Models.ProductAttribute>(),
+                Attributes = item.Attributes != null ? item.Attributes.Select(m => m.MapToFrontendAttribute()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Products.Models.ProductAttribute>() ,
                 Images = item.Images,
                 Combinations = item.Combinations != null ? item.Combinations.Select(m => m.MapToFronendCombination()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Products.Models.ProductCombination>(),
                 Lang = item.Lang,
@@ -403,4 +403,3 @@ namespace tantum.DirectBackendServices.ContentServices.Products.Mapper
         #endregion
     }
 }
-

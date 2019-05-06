@@ -50,7 +50,7 @@ namespace tantum.DirectBackendServices.ContentServices.Categories
 
             var data = result != null ? result.Select(m => m.MapToFrontendCategory()).ToList() : new List<Category>();
 
-            return ReturnResult(data, result != null);
+           return ReturnResult(data, result != null);
         }
 
 

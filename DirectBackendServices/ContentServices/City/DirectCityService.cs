@@ -15,7 +15,7 @@ namespace tantum.DirectBackendServices.ContentServices.City
 
 
 
-        public DirectCityService(TamTechBackendSDK.ContentService.Services.Cities.ICityService cityservice)
+        public DirectCityService(TamTechBackendSDK.ContentService.Services.Cities.ICityService  cityservice)
         {
             _cityservice = cityservice;
         }
@@ -27,11 +27,11 @@ namespace tantum.DirectBackendServices.ContentServices.City
             return result != null ? result.Select(m => m.MapToFrontEndSelectListItemModel()).ToList() : new List<SelectListItemModel>();
         }
 
-        public async Task<List<CityDto>> GetPublicListAsync()
+        public  async Task<List<CityDto>> GetPublicListAsync()
         {
             var result = await _cityservice.GetPublicListAsync();
 
-            return result != null ? result.Select(m => m.MapToForntEndCity()).ToList() : new List<CityDto>();
+            return result != null ? result.Select(m => m.MapToForntEndCity()).ToList()  :  new List<CityDto>() ;
         }
     }
 }

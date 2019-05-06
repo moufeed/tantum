@@ -26,9 +26,9 @@ namespace tantum.DirectBackendServices.ContentServices.Sections
         }
         #endregion
 
-
+      
         #region public services
-
+     
 
         public async Task<IRequestProviderResult<List<SectionDto>>> GetPublicListAsync()
         {
@@ -89,34 +89,34 @@ namespace tantum.DirectBackendServices.ContentServices.Sections
 
         public async Task<IRequestProviderResult<SectionList>> GetAllAsync(PaginationModel pagination, Dictionary<string, object> searchParams, SortingModel sorting, string lang)
         {
+            
+             var result = await _SectionService.GetAllExceptSoftDeletedAsync(pagination.MapToBackendPaginationModel(), searchParams, sorting.MapToBackendSortingModel(), lang);
 
-            var result = await _SectionService.GetAllExceptSoftDeletedAsync(pagination.MapToBackendPaginationModel(), searchParams, sorting.MapToBackendSortingModel(), lang);
+           SectionList model = new SectionList
+           {
+               Data = result.Data != null  ? result.Data.Select(m => m.MapToFrontendDto()).ToList() : new List<SectionDto>(),
+               Pagination = result.Pagination?.MapToForntEndPagination()
+           };
 
-            SectionList model = new SectionList
-            {
-                Data = result.Data != null ? result.Data.Select(m => m.MapToFrontendDto()).ToList() : new List<SectionDto>(),
-                Pagination = result.Pagination?.MapToForntEndPagination()
-            };
-
-            return ReturnResult(model);
+           return ReturnResult(model);
         }
 
 
-        public async Task<IRequestProviderResult<Guid>> CreateAsync(CreateSectionDto model)
+        public async  Task<IRequestProviderResult<Guid>> CreateAsync(CreateSectionDto model)
         {
             var result = await _SectionService.CreateAsync(model.MapTobackendCreateSection());
             return MapRequestProviderResult(result);
         }
-
+         
         public async Task<IRequestProviderResult<bool>> EditAsync(UpdateSectionDto model)
         {
             var result = await _SectionService.EditAsync(model.MapToBackendDto());
             return MapRequestProviderResult(result);
         }
-
+         
         public async Task<IRequestProviderResult<SectionDto>> GetByIdAsync(Guid id, string lang)
         {
-            var result = await _SectionService.GetByIdExceptSoftDeletedAsync(id, lang);
+            var result = await _SectionService.GetByIdExceptSoftDeletedAsync(id , lang);
             return ReturnResult(result.MapToFrontendDto());
         }
 
@@ -131,7 +131,7 @@ namespace tantum.DirectBackendServices.ContentServices.Sections
             var result = await _SectionService.SoftDeleteAsync(id);
             return MapRequestProviderResult(result);
         }
-
+ 
 
 
         #endregion

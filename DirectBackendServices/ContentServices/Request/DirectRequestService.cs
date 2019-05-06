@@ -16,7 +16,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request
     public class DirectRequestService : BaseDirectService, IRequestService
     {
         #region Props  
-        private readonly TamTechBackendSDK.ContentService.Services.Requests.IRequestService _RequestService;
+        private readonly TamTechBackendSDK.ContentService.Services.Requests.IRequestService  _RequestService;
         #endregion
 
         #region constructor
@@ -55,7 +55,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request
 
             PagedResultModel<List<RequestDto>> model = new PagedResultModel<List<RequestDto>>
             {
-                Data = result.Data?.Select(m => m.MapToFrontendDto()).ToList(),
+                Data = result.Data?.Select(m => m.MapToFrontendDto()).ToList() ,
                 Pagination = result.Pagination?.MapToForntEndPagination()
             };
 
@@ -63,7 +63,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request
 
         }
 
-
+     
 
         public async Task<IRequestProviderResult<List<SelectListItemModel>>> GetItemsListExceptSoftDeletedAsync(string lang)
         {
@@ -78,7 +78,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request
         {
             var result = await _RequestService.GetByIdExceptSoftDeletedAsync(id, lang);
 
-            return ReturnResult(result.MapToFrontendDto(), result != null);
+            return ReturnResult(result.MapToFrontendDto() , result != null );
         }
 
 
@@ -97,13 +97,13 @@ namespace tantum.DirectBackendServices.ContentServices.Request
         public async Task<IRequestProviderResult<List<SelectListItemModel>>> GetPublicItemsListAsync()
         {
             var result = await _RequestService.GetPublicItemsListAsync();
-
+             
             List<SelectListItemModel> SelectListItem = result != null ? result.Select(m => m.MapToFrontendSelectListItemModel()).ToList() : new List<SelectListItemModel>();
 
             return ReturnResult(SelectListItem);
         }
 
-
+      
 
         #endregion
     }

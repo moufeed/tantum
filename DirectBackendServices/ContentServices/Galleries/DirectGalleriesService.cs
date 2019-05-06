@@ -19,7 +19,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
         #region prop
         TamTechBackendSDK.ContentService.Services.Galleries.IGalleryService _galleriesService;
 
-
+       
         #endregion
 
 
@@ -42,13 +42,13 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
             return ReturnResult(galleries);
         }
 
+        
 
-
-        public async Task<List<GalleryLiteDto>> GetPublicListAsync(int takeItems, string section = null, bool sortManually = false)
+        public async  Task<List<GalleryLiteDto>> GetPublicListAsync(int takeItems, string section = null, bool sortManually = false)
         {
             List<GalleryLiteDto> galleries = new List<GalleryLiteDto>();
 
-            var result = await _galleriesService.GetPublicListAsync(takeItems, section, sortManually);
+            var result = await _galleriesService.GetPublicListAsync(takeItems, section , sortManually);
             if (result != null)
             {
                 galleries = result.Select(m => m.ToFrontend_GalleryLiteDto()).ToList();
@@ -58,15 +58,16 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
         public async Task<PagedResultModel<List<GalleryLiteDto>>> GetPublicListAsync(PaginationModel pagination, string section = null, SortingModel sorting = null)
         {
-
-            var result = await _galleriesService.GetPublicListAsync(pagination.MapToBackendPaginationModel(), section, sorting != null ? sorting.MapToBackendSortingModel() : null);
+            
+            var result = await _galleriesService.GetPublicListAsync(pagination.MapToBackendPaginationModel(), section , sorting != null ? sorting.MapToBackendSortingModel() : null );
 
             var galleries = new PagedResultModel<List<GalleryLiteDto>>() { };
             if (result != null)
             {
                 galleries.Data = result.Data != null ? result.Data.Select(m => m.ToFrontend_GalleryLiteDto()).ToList() : new List<GalleryLiteDto>();
                 galleries.Pagination = result.Pagination != null ? result.Pagination.MapToForntEndPagination() : new PaginationMetadataModel();
-
+                galleries.SectionsSlugs = result.SectionsSlugs?.Select(m => m.MapSlugsToFrontend()).ToList();
+ 
             }
             return galleries;
 
@@ -81,7 +82,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
         //        SortBy = "DisplayOrder",
         //        Descending = false
         //    };
-
+             
         //   var result = await _galleriesService.GetPublicListAsync(pagination.MapToBackendPaginationModel(), (sortingByOrder) ? sorting.MapToBackendSortingModel() : null);
 
         //    var galleries = new PagedResultModel<List<GalleryLiteDto>>() { };
@@ -101,12 +102,12 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
             GalleryDto gallery = new GalleryDto();
 
-            if (result != null)
+            if (result != null) 
             {
                 gallery = DeserializeFromObject<GalleryDto>(result);
                 return ReturnResult(gallery);
             }
-            return ReturnResult(gallery, false);
+            return ReturnResult(gallery,false);
 
         }
 
@@ -132,16 +133,16 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
         {
 
             var result = await _galleriesService.GetAllExceptSoftDeletedAsync(pagination.MapToBackendPaginationModel(), searchParams, sorting.MapToBackendSortingModel(), lang);
+         
 
+           GalleryList model = new GalleryList
+           {
+               Data = result.Data != null  ? result.Data.Select(m => m.ToFrontend_GalleryLiteDto()).ToList() : new List<GalleryLiteDto>(),
+               Pagination = result.Pagination?.MapToForntEndPagination()
+           };
 
-            GalleryList model = new GalleryList
-            {
-                Data = result.Data != null ? result.Data.Select(m => m.ToFrontend_GalleryLiteDto()).ToList() : new List<GalleryLiteDto>(),
-                Pagination = result.Pagination?.MapToForntEndPagination()
-            };
-
-            return ReturnResult(model);
-
+           return ReturnResult(model);
+             
         }
 
 
@@ -156,7 +157,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
         }
 
 
-
+        
 
         public async Task<IRequestProviderResult<GalleryDto>> GetByIdAsync(Guid id, string lang)
         {
@@ -169,12 +170,12 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
         public async Task<IRequestProviderResult<bool>> EditAsync(UpdateGalleryDto Gallery)
         {
-            var result = await _galleriesService.EditAsync(Gallery.MapTobackendUpdateGalleryDto());
+            var result =await  _galleriesService.EditAsync(Gallery.MapTobackendUpdateGalleryDto());
 
             return MapRequestProviderResult(result);
         }
 
-
+       
 
         public async Task<IRequestProviderResult<bool>> PublishAsync(PublishDTO data)
         {
@@ -204,9 +205,9 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
         public async Task<IRequestProviderResult<GalleryItemDto>> GetGalleryItemByIdAsync(GalleryItemKeysDto model, string lang)
         {
-            var result = await _galleriesService.GetGalleryItemByIdAsync(model.MapToBackendGalleryItemKeysDto(), lang);
+            var result = await _galleriesService.GetGalleryItemByIdAsync(model.MapToBackendGalleryItemKeysDto() ,lang);
             return ReturnResult(result.MapToFrontEndGalleryItemDto());
-
+        
         }
 
 
@@ -218,7 +219,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
         }
 
-
+        
 
         public async Task<IRequestProviderResult<bool>> PublishGalleryItemByIdAsync(GalleryItemKeysDto dto)
         {
@@ -235,14 +236,14 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
         }
 
-        public async Task<IRequestProviderResult<bool>> PublishGalleryItemsAsync(PublishDTO dto)
+        public async  Task<IRequestProviderResult<bool>> PublishGalleryItemsAsync(PublishDTO dto)
         {
             var result = await _galleriesService.PublishAllGalleryItemsAsync(dto.MapToBackend());
-
+             
             return MapRequestProviderResult(result);
         }
 
-        public async Task<IRequestProviderResult<Dictionary<Guid, string>>> CreateListGalleryItemsAsync(CreateListGalleryItemsDto data)
+        public async Task<IRequestProviderResult<Dictionary<Guid,string>>> CreateListGalleryItemsAsync(CreateListGalleryItemsDto data)
         {
 
             var result = await _galleriesService.CreateListGalleryItemsAsync(data.MapToBackendListOitems());
@@ -251,7 +252,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries
 
         }
 
-
+   
 
 
 

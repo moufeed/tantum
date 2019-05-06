@@ -14,7 +14,7 @@ namespace tantum.DirectBackendServices.ContentServices.Products
 
         public DirectProductsService(TamTechBackendSDK.ContentService.Services.Products.IProductService productService)
         {
-            _productService = productService;
+            _productService = productService; 
         }
 
         public async Task<IRequestProviderResult<ProductForm>> GetByIdAsync(Guid id)

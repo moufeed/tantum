@@ -43,7 +43,8 @@ namespace tantum.DirectBackendServices.EmailServices
                 ReasonOfSend = model.ReasonOfSend,
                 Subject = model.Subject,
                 Text = model.Message,
-                Recipients = new List<string> { model.Email }
+                Recipients = new List<string> { model.Email },
+                CC= model.CC
             };
 
             return await _emailSender.SendEmail(email);

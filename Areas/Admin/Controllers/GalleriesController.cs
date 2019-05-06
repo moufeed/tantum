@@ -13,6 +13,8 @@ using TamTechSDK.Web.Models.Shared.Filters;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System;
+using tantum.Custom;
+using System.Linq;
 
 namespace tantum.Areas.Admin.Controllers
 {
@@ -32,14 +34,11 @@ namespace tantum.Areas.Admin.Controllers
         private void sectionList()
         {
             #region sectionList
-            List<SelectListItem> sections = new List<SelectListItem>()
-            {
-                 new SelectListItem
-                { Text = _localizer["section_projects"] , Value = "projects"  },
-                  new SelectListItem
-                { Text = _localizer["section_works"] , Value = "works"  },
-            };
-            ViewBag.sectionList = sections;
+             
+                List<SelectListItem> selectList = Departments.DepartmentsList
+                    .Select(D => new SelectListItem { Text = _localizer[D].Value, Value = _localizer[D].Value }).ToList();
+             
+            ViewBag.sectionList = selectList;
             #endregion
         }
 

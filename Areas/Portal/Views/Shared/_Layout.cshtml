@@ -1,4 +1,12 @@
-﻿<!doctype html>
+﻿@using tantum.Custom;
+@{ 
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+    string footer = string.Empty;
+    var styleFile = string.Empty;
+    var controller = ViewContext.RouteData.Values["Controller"].ToString();
+    var action = ViewContext.RouteData.Values["Action"].ToString();
+}
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -14,20 +22,91 @@
 
 
     @{
-        var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
-        var styleFile = (lang == "ar") ? "style-rtl.min.css" : "style-ltr.min.css";
-    }
+        
+        if (string.Equals(action,"index",StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "main-rtl.min.css" : "main-ltr.min.css";
+            footer = "partials/_Footer.cshtml";
+        }
+        else if (string.Equals(action, Departments.Construction ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "construction-rtl.min.css" : "construction-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+
+        else if (string.Equals(action, Departments.InteriorDesign ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "interiordesign-rtl.min.css" : "interiordesign-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+        else if (string.Equals(action, Departments.Telecommunications ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "telecommunications-rtl.min.css" : "telecommunications-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+        else if (string.Equals(action, Departments.EventManagement ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "events-rtl.min.css" : "events-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+        else if (string.Equals(action, Departments.SoftwareSolutions ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "software-rtl.min.css" : "software-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+
+        else if (string.Equals(action, Departments.GiftItems ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "gift-rtl.min.css" : "gift-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+
+        else if (string.Equals(action, Departments.DesignAndAnimation ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "design-rtl.min.css" : "design-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+
+        else if (string.Equals(action, Departments.SmartSystems ,StringComparison.OrdinalIgnoreCase))
+        {
+            styleFile = (lang == "ar") ? "smart-rtl.min.css" : "smart-ltr.min.css";
+            footer = "partials/_DFooter.cshtml";
+        }
+
+        else {
+            styleFile = (lang == "ar") ? "main-rtl.min.css" : "main-ltr.min.css";
+            footer = "partials/_Footer.cshtml";
+        }
+
+
+
+
+     }
     <link rel="stylesheet" href="~/Portal/css/@styleFile">
     @RenderSection("meta", required: false)
-    @RenderSection("Styles", required: false)
+    @RenderSection("Styles", required: false) 
 
 
 </head>
 <body>
-    <partial name="partials/_Header.cshtml" />
+
+    @*<h1>@( ViewContext.RouteData.Values["Action"])</h1>*@
+
+    @if (string.Equals(controller, "home", StringComparison.OrdinalIgnoreCase) && string.Equals(action, "index", StringComparison.OrdinalIgnoreCase))
+    {
+        List<SlugModel> mod = new List<SlugModel>();
+
+        <partial name="partials/_Header.cshtml"  model="mod" />
+    }
+
+
+    
     @RenderBody()
-    <partial name="partials/_Footer.cshtml" />
+
+
+
+    <partial name="@footer" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>

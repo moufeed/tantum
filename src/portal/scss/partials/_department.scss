@@ -1,0 +1,25 @@
+
+
+ @import 
+ 'node_modules/owl.carousel/src/scss/owl.carousel.scss',
+ 'node_modules/owl.carousel/src/scss/owl.theme.default.scss'
+ ;
+ 
+ @import  
+ '../plugins/magnific'
+ ;
+ //Shared
+ @import 
+ 'Shared/header',
+ 'Shared/defualt',
+ 'Shared/footer'
+ ;
+
+ @import 
+ 'department/slider',
+ 'department/about_area',
+ 'department/services',
+ 'department/portfolio',
+ 'department/our_clients',
+ 'department/contact_us'
+ ;

@@ -1,11 +1,85 @@
-﻿@model string
+﻿@using System.Linq
+@model List<SlugModel>
 @{
     string _lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     var controller = ViewContext.RouteData.Values["Controller"].ToString();
     var action = ViewContext.RouteData.Values["Action"].ToString();
     var routeValues = ViewBag.LanguageTabsRouteValues != null ? (Microsoft.AspNetCore.Routing.RouteValueDictionary)ViewBag.LanguageTabsRouteValues : new Microsoft.AspNetCore.Routing.RouteValueDictionary(); ;
     routeValues.Add("culture", _lang);
+
+    var model = ViewContext.ViewData.Model;
 }
+
+
+
+<if include-if="CultureConstants.CulturesList?.Count > 1">
+  
+
+    <div class="dropdown lanugages-list @ViewData["class"] ">
+        <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            @foreach (var culture in CultureConstants.CulturesList)
+            {
+                @if (_lang == culture.Lang)
+                {
+                    @culture.Name
+                }
+            }
+        </button>
+
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+            @if (model != null && Model.Count > 0)
+            {
+                @foreach (var culture in CultureConstants.CulturesList)
+                {
+
+                    if (!string.Equals(_lang, culture.Lang, StringComparison.OrdinalIgnoreCase))
+                    {
+                        SlugModel item = Model.FirstOrDefault(i => string.Equals(i.Lang, culture.Lang, StringComparison.OrdinalIgnoreCase));
+
+                        if (item.Slug != null)
+                        {
+                            <a class="dropdown-item"
+                               href="@Url.Action(action,controller, new {Culture= item.Lang , slug =item.Slug}).Replace("%2F", "/")">@culture.Name</a>
+                        }
+                        else if (string.Equals(action, "index", StringComparison.OrdinalIgnoreCase))
+                        {
+                            <a class="dropdown-item"
+                               asp-action="@action"
+                               asp-controller="@controller"
+                               asp-route-Culture="@item.Lang">@culture.Name</a>
+                        }
+                        else
+                        {
+                            <a class="dropdown-item"
+                               asp-action="index"
+                               asp-controller="home"
+                               asp-route-Culture="@item.Lang">@culture.Name</a>
+                        }
+                    }
+                     
+                }
+            }
+            else
+            {
+                @foreach (var culture in CultureConstants.CulturesList)
+                {
+                    routeValues["culture"] = culture.Lang;
+                    @if (_lang != culture.Lang)
+                    {
+                        <a href="@Url.AdminUrl(action,controller,routeValues)" class="dropdown-item"> @culture.Name </a>
+                    }
+                }
+            }
+        </div>
+    </div>
+</if>
+
+
+
+ @*
+ 
 <if include-if="CultureConstants.CulturesList?.Count > 1">
     <div class="dropdown lanugages-list @Model ">
 
@@ -30,4 +104,4 @@
             }
         </div>
     </div>
-</if>
+</if>*@

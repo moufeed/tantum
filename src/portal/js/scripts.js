@@ -51,4 +51,13 @@ $(document).ready(function(){
       $('body').css("padding-top",headerHeight)
     }
   });
+
+  $('.btn-view-scroll').click(function(e){
+    e.preventDefault();
+    var $this = $(this); 
+    var id = $this.attr('href');
+    $('html, body').animate({
+        scrollTop: $(id).offset().top - 75
+    }, 1000);
+  })
 }) 

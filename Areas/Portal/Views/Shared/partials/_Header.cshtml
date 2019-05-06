@@ -1,4 +1,5 @@
-@{ 
+@model List<SlugModel>
+@{
     string _lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
     var controller = ViewContext.RouteData.Values["Controller"].ToString();
     var action = ViewContext.RouteData.Values["Action"].ToString();
@@ -9,25 +10,26 @@
     <div class="container">
         <div class="row  justify-content-between align-items-end  pt-5">
             <div class="col-12 col-lg-auto text-center">
-                <a asp-action="indx" asp-controller="home" class="main_logo">
-                    <img src="~/Portal/img/logo.png"  width="130" alt="">
+                <a asp-action="index" asp-controller="home" class="main_logo">
+                    <img src="~/Portal/img/logo.png" width="130" alt="">
                 </a>
                 @{
-                    string classs = "d-none d-md-inline d-lg-none position-absolute";
+                     
+                    ViewData["class"] ="d-none d-md-inline d-lg-none position-absolute";
                 }
-                <partial name="~/Areas/Portal/Views/Shared/utilities/_languagesList.cshtml" model="classs" />
+                <partial name="~/Areas/Portal/Views/Shared/utilities/_languagesList.cshtml" model="@Model" />
             </div>
-            <div class="col-12 col-md-auto col-lg-9">
+            <div class="col-12 col-md-auto col-lg-10">
                 <div class="row flex-column align-items-end">
                     <div class="col-auto">
-                        @{   string val = "d-none d-lg-inline"; }
-                        <partial name="~/Areas/Portal/Views/Shared/utilities/_languagesList.cshtml"  model="val"/>
-                    
+                        @{ ViewData["class"] = "d-none d-lg-inline"; }
+                        <partial name="~/Areas/Portal/Views/Shared/utilities/_languagesList.cshtml" model="@Model" />
+
 
                     </div>
                     <div class="col-12 ">
                         <nav class="navbar navbar-expand-md main_menu  ">
-                           
+
                             <div class="navbar-toggler">
                                 <button class="btn btn-outline-dark" type="button"
                                         data-toggle="collapse"
@@ -37,19 +39,19 @@
                                         aria-label="Toggle navigation">
                                     <i class="fa fa-bars"></i>
                                 </button>
-                                @{
-                                    string vals = "position-absolute";
+                                @{ 
+                                    ViewData["class"] = "position-absolute";
                                 }
-                                <partial name="~/Areas/Portal/Views/Shared/utilities/_languagesList.cshtml" model="vals" />
- 
+                                <partial name="~/Areas/Portal/Views/Shared/utilities/_languagesList.cshtml" model="@Model" />
+
                             </div>
-                            
+
 
                             <div class="collapse navbar-collapse" id="mainnavbar">
                                 <menu List-class="flip"></menu>
                             </div>
                         </nav>
- 
+
                     </div>
                 </div>
             </div>

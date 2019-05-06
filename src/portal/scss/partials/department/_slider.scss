@@ -1,0 +1,120 @@
+
+.main_slider{
+    position: relative;
+    color: $white;
+    margin-bottom: rem(50px);
+    .main-area{
+        height: 620px;
+    }
+    
+    .main_image{
+        @include absolute(top $left ,0);
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        img{
+            height:auto;
+            min-width: 100%;
+        }
+    }
+
+    .intro-area{
+        background:rgba($maincolor,.85);
+        padding: rem(50px) rem(50px);
+        position: relative;
+        top: rem(35px);
+
+    }
+    .depart-title{
+        text-align: center;
+        margin: rem(15px) 0 rem(25px);
+        
+        img{
+            width: 85px;
+        }
+        h3{
+            display: inline-block;
+            font-size: rem(30px);
+            font-weight: 500;
+            margin:0 rem(15px) ;
+        }
+    }
+
+    h1{
+        font-size: rem(50px);
+        text-transform: uppercase;
+        font-weight: bolder;
+        margin-bottom: rem(30px);
+        small{
+            display: block;
+            font-size: rem(20px);
+
+        }
+    }
+    p{
+        font-size: rem(18px);
+        letter-spacing: 1px;
+    }
+    .btn-outline-view{
+        border: 1px solid $white;
+        border-radius: 0;
+        padding: rem(8px) rem(25px);
+        font-size: rem(16px);
+        cursor: pointer;
+        text-transform: capitalize;
+        color: #fff;
+        &:hover{
+            background: $white;
+            color: $maincolor !important;
+        }
+    }
+
+    @include media-breakpoint-only(md){
+        .main-area{
+            height: auto;
+        }
+        h1{
+            font-size: rem(30px);
+            margin-bottom: rem(20px);
+        }
+        p{
+            font-size: rem(14px);
+        }
+        .main_image{
+           img{
+               height: 100%;
+               min-width: unset;
+           }
+        }
+    }
+
+    @include media-breakpoint-down(sm){
+        margin-bottom: rem(15px);
+        .main-area{
+            height: auto;
+        }
+        .main_image{
+            position:static;
+            img{
+                width: 100%;
+            }
+        }
+        .intro-area{
+            margin-top: -15px;
+            padding: rem(15px);
+            top: 0;
+        }
+
+        h1{
+            font-size: rem(30px);
+            margin-bottom: rem(20px);
+        }
+        p{
+            font-size: rem(14px);
+        }
+    } 
+    
+}

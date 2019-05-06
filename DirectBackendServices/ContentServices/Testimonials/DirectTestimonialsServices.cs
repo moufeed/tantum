@@ -13,7 +13,7 @@ using tantum.DirectBackendServices.ContentServices.Testimonials.Mapper;
 
 namespace tantum.DirectBackendServices.ContentServices.Testimonials
 {
-    public class DirectTestimonialsServices : BaseDirectService, ITestimonialsServices
+    public class DirectTestimonialsServices : BaseDirectService , ITestimonialsServices 
     {
         private ITestimonialService _testimonialsServices;
 
@@ -27,7 +27,7 @@ namespace tantum.DirectBackendServices.ContentServices.Testimonials
         {
             var Testimonial = await _testimonialsServices.GetPublicListAsync(sortManually);
             List<TestimonialDto> TestimonialDto = Testimonial?.Select(m => m.MapToFrontendDto()).ToList();
-            return ReturnResult(TestimonialDto, (Testimonial != null));
+            return ReturnResult(TestimonialDto , (Testimonial !=null ));
 
         }
 
@@ -49,14 +49,14 @@ namespace tantum.DirectBackendServices.ContentServices.Testimonials
         {
             var result = await _testimonialsServices.CreateAsync(model.MapToBackendDto());
             return MapRequestProviderResult(result);
-
+             
         }
 
         public async Task<IRequestProviderResult<TestimonialDto>> GetByIdAsync(Guid id, string lang)
         {
             var testimonial = await _testimonialsServices.GetByIdExceptSoftDeletedAsync(id, lang);
-            return ReturnResult(testimonial?.MapToFrontendDto(), testimonial != null);
-
+            return ReturnResult(testimonial?.MapToFrontendDto() , testimonial != null );
+ 
         }
 
         public async Task<IRequestProviderResult<bool>> EditAsync(UpdateTestimonialDto model)

@@ -12,14 +12,14 @@ using TamTechSDK.Web.Services.ContentService.Menus.PublicService;
 
 namespace tantum.DirectBackendServices.ContentServices.Menus
 {
-    public class DirectMenusServices : BaseDirectService, TamTechSDK.Common.Services.ContentService.Menus.IMenusServices
+    public class DirectMenusServices : BaseDirectService ,TamTechSDK.Common.Services.ContentService.Menus.IMenusServices
     {
-
+      
 
         #region Props  
         private readonly TamTechBackendSDK.ContentService.Services.Menus.IMenuService _menuService;
         private readonly TamTechBackendSDK.ContentService.Services.Utilities.Content.IContentUtilities _contentUtilities;
-        private readonly IWebApplicationSettingsService _appSettingsService;
+        private readonly IWebApplicationSettingsService _appSettingsService; 
         //private readonly TamTechSDK.Common.Services.ContentService.Menus.IMenuManager _menuManager;
         #endregion
 
@@ -34,14 +34,14 @@ namespace tantum.DirectBackendServices.ContentServices.Menus
             _menuService = menuService;
             _contentUtilities = contentUtilities;
             _appSettingsService = appSettingsService;
-            //    _menuManager = menuManager;
+        //    _menuManager = menuManager;
         }
         #endregion
 
         #region Utilities
 
         private IRequestProviderResult<TResult> MapRequestProviderResult<TResult>(
-           TamTechBackendSDK.ContentService.Models.Results.IReturnResultModel<TResult> inputResult)
+           TamTechBackendSDK.ContentService.Models.Results.IReturnResultModel<TResult> inputResult  )
         {
             IRequestProviderResult<TResult> _resultModel = new RequestProviderResult<TResult>();
             _resultModel.Success = inputResult.Success;
@@ -80,13 +80,13 @@ namespace tantum.DirectBackendServices.ContentServices.Menus
             {
                 string mainMenuKey = _appSettingsService.GetMainMenuKey();
 
-                WebPublicCashedMenusService._navbar_en = await GetPublicByKeyAndLangAsync(mainMenuKey, "en");
+                 WebPublicCashedMenusService._navbar_en =  await GetPublicByKeyAndLangAsync(mainMenuKey, "en");
 
 
-                WebPublicCashedMenusService._navbar_ar = await GetPublicByKeyAndLangAsync(mainMenuKey, "ar");
+                WebPublicCashedMenusService._navbar_ar =  await GetPublicByKeyAndLangAsync(mainMenuKey, "ar");
             }
         }
-
+        
         #region Deserialize
         public TResult DeserializeFromObject<TResult>(dynamic inputObject)
         {
@@ -101,7 +101,7 @@ namespace tantum.DirectBackendServices.ContentServices.Menus
         #region Service
 
         public async Task<Dictionary<string, Dictionary<string, string>>> GetListsModulesForMenuItemsTypesAsync(List<string> model, string lang)
-        {
+        { 
             var results = await _contentUtilities.GetListsModulesForMenuItemsTypesAsync(model, lang);
             return results;
         }
@@ -118,9 +118,9 @@ namespace tantum.DirectBackendServices.ContentServices.Menus
         //}
 
 
-        public async Task<MenuDto> GetPublicByKeyAndLangAsync(string key, string lang)
+        public async Task<MenuDto> GetPublicByKeyAndLangAsync(string key , string lang)
         {
-            var result = await _menuService.GetPublicByKeyAndLangAsync(key, lang);
+            var result = await _menuService.GetPublicByKeyAndLangAsync(key, lang); 
             return result?.MapToFrontendDto();
         }
 
@@ -189,12 +189,12 @@ namespace tantum.DirectBackendServices.ContentServices.Menus
         public async Task<IRequestProviderResult<string>> CreateMenuItemAsync(CreateMenuItemDto model)
         {
             var result = await _menuService.CreateMenuItemAsync(model?.MapToBackendDto());
-            if (result.Success)
+            if(result.Success)
             {
-                await RefreshCachedMenusAsync();
+               await  RefreshCachedMenusAsync();
             }
             return MapRequestProviderResult(result);
-        }
+        } 
 
         public async Task<IRequestProviderResult<bool>> EditMenuItemAsync(UpdateMenuItemDto model)
         {

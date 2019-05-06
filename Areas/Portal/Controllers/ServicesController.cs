@@ -11,12 +11,15 @@ using TamTechSDK.Common.Services.ContentService.Menus;
 using TamTechSDK.Web;
 using TamTechSDK.Web.Controllers.Portal;
 using TamTechSDK.Web.Services.Telemetry;
+using TamTechSDK.Common.Models.Sort;
 
 namespace tantum.Areas.Portal.Controllers
 {
     public class ServicesController : ServicesBaseController
     {
-        private static bool SortByOrder = true;
+        private static SortingModel SortByOrder = new SortingModel {
+            SortBy = "DisplayOrder"
+        };
 
         public ServicesController(ITelemetryClientService telemetryClientService, IMenusServices menusServices,
               IServicesService servicesservice)

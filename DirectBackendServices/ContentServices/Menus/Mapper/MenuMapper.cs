@@ -11,7 +11,7 @@ namespace tantum.DirectBackendServices.ContentServices.Menus.Mapper
             {
                 Position = frontend.Position,
                 Key = frontend.Key,
-                Title = frontend.Title,
+                Title = frontend.Title, 
                 Lang = frontend.Lang,
             };
         }
@@ -37,7 +37,7 @@ namespace tantum.DirectBackendServices.ContentServices.Menus.Mapper
             return new TamTechBackendSDK.ContentService.Services.Menus.Dtos.MenuItemKeysModel
             {
                 RootMenuId = frontend.RootMenuId,
-                Key = frontend.Key,
+                Key = frontend.Key,  
             };
         }
 

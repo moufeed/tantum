@@ -47,12 +47,12 @@ namespace tantum.DirectBackendServices.ContentServices.Testimonials.Mapper
                 Published = item.Published,
                 PublishedDate = item.PublishedDate,
                 Id = item.Id,
-                Locked = item.Locked
+                Locked = item.Locked,
+                Slugs = item.Slugs?.Select(m => m.MapSlugsToFrontend()).ToList()
             };
         }
 
-        public static TamTechBackendSDK.ContentService.Services.Testimonials.Dtos.UpdateTestimonialModel MapToBackendUpdateDto(this TamTechSDK.Common.Services.ContentService.Testimonials.Models.UpdateTestimonialDto item)
-        {
+        public static TamTechBackendSDK.ContentService.Services.Testimonials.Dtos.UpdateTestimonialModel MapToBackendUpdateDto(this TamTechSDK.Common.Services.ContentService.Testimonials.Models.UpdateTestimonialDto item){
             return new TamTechBackendSDK.ContentService.Services.Testimonials.Dtos.UpdateTestimonialModel
             {
                 DisplayOrder = item.DisplayOrder,
@@ -66,7 +66,7 @@ namespace tantum.DirectBackendServices.ContentServices.Testimonials.Mapper
                 Rate = item.Rating,
                 Title = item.Title,
                 Id = item.Id,
-                Slug = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString() + "_" + item.Lang,
+                Slug = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString()+"_"+item.Lang,
             };
         }
     }

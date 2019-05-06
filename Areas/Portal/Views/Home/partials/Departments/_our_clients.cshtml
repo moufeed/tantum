@@ -1,0 +1,42 @@
+﻿@using TamTechSDK.Common.Services.ContentService.Sliders.Models;
+@{
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+}
+<if include-if="ViewBag.ClientsSlider != null">
+    @{
+        SliderDto Slider = (SliderDto)ViewBag.ClientsSlider;
+    }
+<section class="clients-area light-gray-bg py-5" id="d-clients">
+    <div class="container">
+        <header class="col-12 text-center title-section">
+            <if include-if="string.IsNullOrEmpty(Slider.Title)">
+               <h2 class="fz-7">@Localizer["our_clients_title"] </h2>
+            </if>
+            <if include-if="!string.IsNullOrEmpty(Slider.Title)">
+                <h2 class="fz-7">@Html.Raw(Slider.Title)</h2>
+            </if>
+
+           
+            <if include-if="string.IsNullOrEmpty(Slider.Summary)">
+                <p>@Localizer["our_clients_text"]</p>
+            </if>
+            <if include-if="!string.IsNullOrEmpty(Slider.Summary)">
+                <p> @Html.Raw(Slider.Summary)</p>
+            </if>
+            
+        </header>
+        <div class="row">
+            <div class="col-12">
+                    <div class="owl-carousel clients_slider" data-rtl="@((lang == "ar" ? "true" : "false" ))">
+                        @foreach (SliderItemDto item in Slider.Items)
+                        {
+                            <div class="slide_item">
+                                <img src="@item.MainImage" alt="@item.Title" />
+                            </div>
+                        }
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+</if>

@@ -7,7 +7,7 @@ using TamTechSDK.Common.Services.ContentService.Status;
 
 namespace tantum.DirectBackendServices.ContentServices.Status
 {
-    public class DirectSatusService : IStatusService
+    public class DirectSatusService :IStatusService
     {
         private TamTechBackendSDK.ContentService.Services.Statuses.IStatusService _statusService;
 
@@ -22,7 +22,7 @@ namespace tantum.DirectBackendServices.ContentServices.Status
         {
             var result = await _statusService.GetAllListAsync(lang);
 
-            return result != null ? result.Select(m => m.MapToFrontEndSelectListItemModel()).ToList() : new List<SelectListItemModel>();
+            return  result != null ?  result.Select(m => m.MapToFrontEndSelectListItemModel()).ToList()  : new List<SelectListItemModel>();
         }
 
     }

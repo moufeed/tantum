@@ -22,4 +22,4 @@
 $bootstrapfont :-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 
 $regularfont : if-ltr(myriad-regular,'Droid Arabic Kufi') , $bootstrapfont;
-$boldfont : if-ltr('myriad-bold','Droid Arabic Kufi'), sans-serif;
+$boldfont : if-ltr('myriad-bold','Droid Arabic Kufi') , $bootstrapfont;

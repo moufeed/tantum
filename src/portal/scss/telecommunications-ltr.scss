@@ -1,0 +1,14 @@
+$dir :ltr;
+
+
+@import 
+'config/variables'
+;
+
+$maincolor :#026e9d;
+$nav-link-hover : $maincolor;
+$footer_background :$maincolor;
+
+@import 'mixins/config'; 
+@import 'lib/fonts';
+@import 'partials/department'; 

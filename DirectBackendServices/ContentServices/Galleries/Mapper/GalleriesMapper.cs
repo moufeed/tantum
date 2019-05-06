@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Threading.Tasks; 
 
 namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
 {
@@ -26,13 +26,14 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
                 CreatedDate = backend.CreatedDate,
                 Tags = backend.Tags,
                 MetaDescription = backend.MetaDescription,
-                SEOMarkup = backend.SEOMarkup,
+                SEOMarkup = backend.SEOMarkup, 
                 Locked = backend.Locked,
-                ItemsCount = backend.ItemsCount,
+                ItemsCount=backend.ItemsCount,
                 PublishedDate = backend.PublishedDate,
-                AuthorName = backend.AuthorName,
-                Section = backend.Section,
-                CustomDate = backend.CustomDate
+                AuthorName =backend.AuthorName,
+                Section =backend.Section,
+                CustomDate = backend.CustomDate,
+                Slugs = backend.Slugs?.Select(m => m.MapSlugsToFrontend()).ToList()
             };
         }
 
@@ -72,13 +73,14 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
                 Published = item.Published,
                 CreatedDate = item.CreatedDate,
                 MetaDescription = item.MetaDescription,
-                Items = item.Items != null ? item.Items.Select(m => m.MapToFrontEndGalleryItemDto()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Galleries.Models.GalleryItemDto>(),
-                SEOMarkup = item.SEOMarkup,
+                Items = item.Items  != null  ? item.Items.Select(m=> m.MapToFrontEndGalleryItemDto()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Galleries.Models.GalleryItemDto>(),
+                SEOMarkup =item.SEOMarkup,
                 ModifiedDate = item.ModifiedDate,
-                Locked = item.Locked,
-                PublishedDate = item.PublishedDate,
+                Locked =item.Locked,
+                PublishedDate =item.PublishedDate,
                 AuthorName = item.AuthorName,
-                CustomDate = item.CustomDate
+                CustomDate = item.CustomDate,
+                Slugs = item.Slugs?.Select(m => m.MapSlugsToFrontend()).ToList()
             };
         }
 
@@ -102,7 +104,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
                 CustomDate = item.CustomDate
 
             };
-        }
+        }        
         #endregion
 
 
@@ -124,13 +126,13 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
                 CreatedDate = item.CreatedDate,
                 MetaDescription = item.MetaDescription,
                 Locked = item.Locked,
-                GalleryItemType = item.GalleryItemType,
+                GalleryItemType =item.GalleryItemType,
                 VideoUrl = item.VideoUrl
 
             };
         }
-
-        public static TamTechBackendSDK.ContentService.Services.Galleries.Dtos.CreateGalleryItemModel MapToBackendCreateGalleryItemDto(this TamTechSDK.Common.Services.ContentService.Galleries.Models.CreateGalleryItemDto item)
+        
+        public static TamTechBackendSDK.ContentService.Services.Galleries.Dtos.CreateGalleryItemModel MapToBackendCreateGalleryItemDto (this TamTechSDK.Common.Services.ContentService.Galleries.Models.CreateGalleryItemDto item )
         {
 
             return new TamTechBackendSDK.ContentService.Services.Galleries.Dtos.CreateGalleryItemModel
@@ -150,7 +152,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
         }
 
 
-        public static TamTechBackendSDK.ContentService.Services.Galleries.Dtos.UpdateGalleryItemModel MapToBackendUpdateGalleryItemDto(this TamTechSDK.Common.Services.ContentService.Galleries.Models.UpdateGalleryItemDto item)
+        public static TamTechBackendSDK.ContentService.Services.Galleries.Dtos.UpdateGalleryItemModel MapToBackendUpdateGalleryItemDto(this TamTechSDK.Common.Services.ContentService.Galleries.Models.UpdateGalleryItemDto item )
         {
 
             return new TamTechBackendSDK.ContentService.Services.Galleries.Dtos.UpdateGalleryItemModel
@@ -177,7 +179,7 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
             {
 
                 Id = item.Id,
-                GalleryId = item.GalleryId,
+                GalleryId = item.GalleryId, 
             };
         }
 
@@ -206,6 +208,3 @@ namespace tantum.DirectBackendServices.ContentServices.Galleries.Mapper
 
     }
 }
-
-
-

@@ -22,7 +22,7 @@
             padding-left: rem(10px) !important;
         }
         &:hover,&.active{
-            border-bottom-color: $red;
+            border-bottom-color:$nav-link-hover;
         }
 
         @include media-breakpoint-down(sm){
@@ -47,7 +47,7 @@
         border:2px solid transparent;
         transition: all .2s;
         &:after{
-            border-top-color: $red;
+            border-top-color: $nav-link-hover; 
         }
         &:hover{
             text-decoration: none;
@@ -85,7 +85,7 @@
     top: 0;
     width: 100%;
     box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.07);
-    z-index: 9999;
+    z-index: 100002;
     animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
     box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
     @include keyframe(fadeInDown){

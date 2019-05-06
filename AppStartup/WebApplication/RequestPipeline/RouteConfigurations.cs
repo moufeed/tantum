@@ -8,6 +8,7 @@ using System.Text;
 using tantum.Services.Configurations.AppSetting.Constants;
 using tantum.Settings.Cultures;
 using TamTechSDK.Web.Routing;
+using tantum.Custom;
 
 namespace tantum.AppStartup.WebApplication.RequestPipeline
 {
@@ -30,6 +31,7 @@ namespace tantum.AppStartup.WebApplication.RequestPipeline
                      subApp.UseRequestLocalization(localizationOptions);
                      subApp.UseMvc(mvcRoutes =>
                      {
+
                          mvcRoutes.MapRoute(
                                              name: "default",
                                              template: "{culture}/{area}/{controller}/{action}/{*slug}",
@@ -38,85 +40,96 @@ namespace tantum.AppStartup.WebApplication.RequestPipeline
                                                  culture = CultureConstants.DefaultCulture.Culture,
                                                  area = routingSettings.DefaultArea,
                                                  controller = "Home",
-                                                 action = "index"
+                                                 action = Departments.Index
                                              },
                                               constraints: new { culture = CultureConstants.Constraint }
                                            );
-                        //if (DisplayArea)
-                        //{
-                        //    mvcRoutes.MapRoute(
-                        //                      name: "Portal_Content_Details",
-                        //                      template: "{culture}/Portal/{controller}/{slug}",
-                        //                      defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "Details" }
-                        //                  );
-                        //    mvcRoutes.MapRoute(
-                        //                       name: "Portal_ContactUs",
-                        //                       template: "{culture}/Portal/{action}",
-                        //                       defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "ContactUs" });
 
-                        //}
-                        //else
-                        //{
-                        //    mvcRoutes.MapRoute(
-                        //             name: "Portal_Content_Details1",
-                        //             template: "{culture}/{controller}/{slug}",
-                        //             defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "Details" }
-                        //         );
-                        //    mvcRoutes.MapRoute(
-                        //                   name: "Portal_Content_Details",
-                        //                   template: "{culture}/{controller}/",
-                        //                   defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "Index" }
-                        //               );
-                        //    mvcRoutes.MapRoute(
-                        //                       name: "Portal_ContactUs",
-                        //                       template: "{culture}/{action}",
-                        //                       defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "ContactUs" });
-                        //}
-
-                        //mvcRoutes.MapRoute(
-                        //                   name: "Portal_Module_Index",
-                        //                   template: "{culture}/{area}/{controller}",
-                        //                   defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "index" }
-                        //               );
+                         mvcRoutes.MapRoute("homeurl", "{culture}/{area}/{action}/{*slug}",
+                            new
+                            {
+                                culture = CultureConstants.DefaultCulture.Culture,
+                                area = routingSettings.DefaultArea,
+                                controller = "Home",
+                                action = "index"
+                            });
 
 
+                         //if (DisplayArea)
+                         //{
+                         //    mvcRoutes.MapRoute(
+                         //                      name: "Portal_Content_Details",
+                         //                      template: "{culture}/Portal/{controller}/{slug}",
+                         //                      defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "Details" }
+                         //                  );
+                         //    mvcRoutes.MapRoute(
+                         //                       name: "Portal_ContactUs",
+                         //                       template: "{culture}/Portal/{action}",
+                         //                       defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "ContactUs" });
+
+                         //}
+                         //else
+                         //{
+                         //    mvcRoutes.MapRoute(
+                         //             name: "Portal_Content_Details1",
+                         //             template: "{culture}/{controller}/{slug}",
+                         //             defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "Details" }
+                         //         );
+                         //    mvcRoutes.MapRoute(
+                         //                   name: "Portal_Content_Details",
+                         //                   template: "{culture}/{controller}/",
+                         //                   defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "Index" }
+                         //               );
+                         //    mvcRoutes.MapRoute(
+                         //                       name: "Portal_ContactUs",
+                         //                       template: "{culture}/{action}",
+                         //                       defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "ContactUs" });
+                         //}
+
+                         //mvcRoutes.MapRoute(
+                         //                   name: "Portal_Module_Index",
+                         //                   template: "{culture}/{area}/{controller}",
+                         //                   defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "index" }
+                         //               );
 
 
-                        //mvcRoutes.MapRoute(
-                        //                      name: "Area_Module_Action",
-                        //                      template: "{culture}/Portal/{controller}/{action}",
-                        //                      defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "index" }
-                        //                  );
+
+
+                         //mvcRoutes.MapRoute(
+                         //                      name: "Area_Module_Action",
+                         //                      template: "{culture}/Portal/{controller}/{action}",
+                         //                      defaults: new { culture = CultureConstants.DefaultCulture.Culture, area = "Portal", controller = "Home", action = "index" }
+                         //                  );
 
 
 
 
-                        //#region Area = Portal / Controller = Home
+                         //#region Area = Portal / Controller = Home
 
-                        //mvcRoutes.MapRoute(
-                        //                        name: "PortalArea_ContactUs-Culture-Portal",
-                        //                        template: "{culture}/Portal/{action}",
-                        //                        defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
+                         //mvcRoutes.MapRoute(
+                         //                        name: "PortalArea_ContactUs-Culture-Portal",
+                         //                        template: "{culture}/Portal/{action}",
+                         //                        defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
 
-                        //mvcRoutes.MapRoute(
-                        //                      name: "PortalArea_ContactUs-Portal",
-                        //                      template: "Portal/{action}",
-                        //                      defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
+                         //mvcRoutes.MapRoute(
+                         //                      name: "PortalArea_ContactUs-Portal",
+                         //                      template: "Portal/{action}",
+                         //                      defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
 
-                        //mvcRoutes.MapRoute(
-                        //                        name: "PortalArea_ContactUs-Culture",
-                        //                        template: "{culture}/{action}",
-                        //                        defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
+                         //mvcRoutes.MapRoute(
+                         //                        name: "PortalArea_ContactUs-Culture",
+                         //                        template: "{culture}/{action}",
+                         //                        defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
 
-                        //mvcRoutes.MapRoute(
-                        //                      name: "PortalArea_ContactUs",
-                        //                      template: "{action}",
-                        //                      defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
+                         //mvcRoutes.MapRoute(
+                         //                      name: "PortalArea_ContactUs",
+                         //                      template: "{action}",
+                         //                      defaults: new { culture = "en-US", area = "Portal", controller = "Home", action = "ContactUs" });
 
-                        //#endregion
+                         //#endregion
 
 
-                    });
+                     });
                  });
 
             });

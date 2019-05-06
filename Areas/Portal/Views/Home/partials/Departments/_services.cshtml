@@ -1,0 +1,28 @@
+﻿@{
+    var lang = System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+}
+<if include-if="ViewBag.Services != null">
+        @{ 
+            List<ServiceDto> services = (List<ServiceDto>)ViewBag.Services;
+        }
+        <section class="service-area light-gray-bg py-5" id="d-services">
+            <div class="container">
+                <header class="col-12 text-center title-section">
+                    <h1 class="fz-7">@Localizer["our_services_title"] </h1>
+                    <p>@ViewData["services_text"]</p>
+                </header>
+                <div class="  py-3 justify-content-center owl-carousel service-carousel" data-rtl="@((lang == "ar" ? "true" : "false" ))">
+                    @foreach (ServiceDto service in services)
+                    {
+                        <div class="text-center">
+                            <div class="service-item">
+                                <img src="@service.MainImage" alt="@service.Title"  class="custom-img"/>
+                                <h3>@service.Title</h3>
+                                <p> @Html.Raw(service.Summary) </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+</if>

@@ -1,0 +1,19 @@
+﻿<if include-if="ViewBag.aboutSummary != null">
+    <section class="about-area" id="d-about">
+        <div class="container">
+            <div class="row align-items-center">
+                <header class="col-12 text-center title-section">
+                    <h1 class="fz-7">@Localizer["about_us_title"] </h1>
+                </header>
+                <div class="col-md-4 col-lg-6">
+                    <img src="~/Portal/img/departments/@ViewBag.DepartmentFolder/about.png" />
+                </div>
+                <div class="col-md-8 col-lg-6">
+                    <div class="suumary-area">
+                        @Html.Raw(ViewBag.aboutSummary.Summary)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</if>

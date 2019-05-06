@@ -59,7 +59,7 @@ namespace tantum.DirectBackendServices.ContentServices.Services.Mapper
                 Slug = backend.Slug,
                 Summary = backend.Summary,
                 Title = backend.Title,
-                CreatedDate = backend.CreatedDate,
+                CreatedDate = backend.CreatedDate, 
                 Published = backend.Published,
                 Icon = backend.Icon,
                 IconVisibility = backend.IconVisibility,
@@ -67,7 +67,8 @@ namespace tantum.DirectBackendServices.ContentServices.Services.Mapper
                 SEOMarkup = backend.SEOMarkup,
                 ModifiedDate = backend.ModifiedDate,
                 Locked = backend.Locked,
-                PublishedDate = backend.PublishedDate
+                PublishedDate = backend.PublishedDate,
+                Slugs = backend.Slugs?.Select(m => m.MapSlugsToFrontend()).ToList()
             };
         }
 

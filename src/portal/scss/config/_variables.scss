@@ -1,0 +1,58 @@
+
+$img:"../img/";
+$font:"../fonts";
+$fa-font-path: "../fonts/fa";
+
+
+  
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+
+ 
+$red            :#e11f26 !default;
+$darkred        :#c0002d !default;
+$green          :#86c04a !default;
+$darkgreen      :#009484 !default;
+$lighblue       :#5fcee8 !default;
+$blue           :#2265e0 !default;
+$darkblue       :#026e9d !default;
+$gray           :#6d6d6d !default;
+$lightgray      :#E0DFE0 !default;
+$gray-bg        :#EFEEEF !default;
+$light_text     :#A2AEBB !default;
+$medium_text    :#999999 !default;
+$dark_text      :#363636 !default;
+$white          :#ffffff !default;
+$black          :#000000 !default;
+
+$maincolor      :#e11f26 !default;
+
+$departments_color : 
+rgba($red,.85) 
+rgba( $darkgreen,.85) 
+rgba( $darkblue,.85) 
+
+rgba( $lighblue,.85) 
+rgba( $green ,.85) 
+rgba( $darkred ,.85)
+
+rgba($red,.85) 
+rgba( $darkgreen,.85) 
+rgba( $darkblue,.85) 
+
+rgba( $lighblue,.85) 
+rgba( $green ,.85) 
+rgba($darkred ,.85)
+
+rgba( $gray,.85) 
+rgba( $blue,.85)  
+!default;
+
+
+$ont-sizes :  1rem 1.5rem 2rem 2.5rem 3rem 3.5rem 4rem 4.5rem 5rem !default;
+$nav-link-hover : $red !default;
+
+
+$footer_background  : $black;

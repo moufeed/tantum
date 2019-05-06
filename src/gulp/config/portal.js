@@ -62,7 +62,26 @@ module.exports = {
                     './node_modules/owl.carousel/dist/owl.carousel.min.js', 
                     `${portal_src}/js/carousel.js`
                 ]
-            }
+            },{
+                outputFileName: "flex.js",
+                es6: false,
+                inputFiles: [
+                    `${portal_src}/js/plugins/flexslider/jquery.flexslider-min.js`, 
+                    `${portal_src}/js/flex.js`
+                ]
+            },{
+                outputFileName: "profile.js",
+                es6: false,
+                inputFiles: [
+                    `${portal_src}/js/profile.js`
+                ]
+            },{
+                outputFileName: "magnific-popup.js",
+                es6: false,
+                inputFiles: [
+                    './node_modules/magnific-popup/dist/jquery.magnific-popup.min.js',
+                ],
+            },
         ]
     },
 }

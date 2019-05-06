@@ -22,25 +22,59 @@ if(site_lang == 'ar'){
 }
 
 
-$('#ContactForm').validate(
-    {
-        highlight: function(element) {
-            $(element).addClass('is-invalid');
-        },
-        unhighlight: function(element) {
-            $(element).removeClass('is-invalid');
-        },
-        errorElement: 'div',
-        errorClass: 'invalid-feedback',
-        errorPlacement: function(error, element) {
-            if(element.parent('.input-group').length) {
-                error.insertAfter(element.parent());
-            } else {
-                error.insertAfter(element);
+var options = {
+    highlight: function(element) {
+        $(element).addClass('is-invalid');
+    },
+    unhighlight: function(element) {
+        $(element).removeClass('is-invalid');
+    },
+    errorElement: 'div',
+    errorClass: 'invalid-feedback',
+    errorPlacement: function(error, element) {
+        if(element.parent('.input-group').length) {
+            error.insertAfter(element.parent());
+        } else {
+            error.insertAfter(element);
+        }
+    },
+}
+
+
+$('#DepartForm').validate({...options,submitHandler: (form)=> {
+    var $form = $(form);
+    var btn = $form.find('.btn-send');
+    btn.attr('disabled' ,"disabled");
+    $form.valid();
+    var url = $form.attr('action');
+    var message ={};
+    data = $form.serializeArray();
+    $.each(data,function(key,val){
+        message[val.name] = val.value;
+    })
+    $.ajax({  
+        type: 'POST',
+        url: url,
+        data: message,  
+    })
+    .done(function (data) {
+        btn.removeAttr('disabled');
+            if(data.success){
+                $form[0].reset();
+                $("#alert-success").removeClass("d-none").addClass("show");
             }
-        },
-        
-        submitHandler: function (form) {
+    })
+    .fail(function (jqXHR, Status) {
+        btn.removeAttr('disabled');
+    });
+
+    return false;
+}
+});
+
+
+$('#ContactForm').validate(
+    { ...options,submitHandler: (form)=> {
                  
             var $form = $(form);
             var btn = $form.find('.float-btn');
@@ -78,4 +112,7 @@ $('#ContactForm').validate(
                 return false;
         },
     }
+
+
+
 );

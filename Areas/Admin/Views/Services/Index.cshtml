@@ -40,8 +40,8 @@
                         <thead>
                         <th width="100" class="text-center">@Localizer["t_image"]</th>
                         <th>@Localizer["t_title"]</th>
-
                         <th>@Localizer["t_summary"]</th>
+                        <th width="150">@Localizer["t_section_parent"]</th>
 
                         <th width="100" class="text-center">@Localizer["t_visibility"]</th>
                         <th width="175">@Localizer["t_actions"]</th>
@@ -91,7 +91,9 @@
                                             @Html.Raw(text)
                                         </div>
                                     </td>
-
+                                    <td>
+                                        @item.Section
+                                    </td>
                                     <td class="text-center">
 
                                         @if (item.Locked)

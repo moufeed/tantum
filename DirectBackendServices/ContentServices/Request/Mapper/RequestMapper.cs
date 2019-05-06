@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+ 
 
 namespace tantum.DirectBackendServices.ContentServices.Request.Mapper
 {
@@ -93,7 +93,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request.Mapper
 
         public static TamTechSDK.Common.Services.ContentService.Request.Models.RequestDto MapToFrontendDto(this TamTechBackendSDK.ContentService.Services.Requests.Models.RequestDto item)
         {
-
+             
             return new TamTechSDK.Common.Services.ContentService.Request.Models.RequestDto
             {
                 ItemId = item.ItemId,
@@ -107,7 +107,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request.Mapper
                 Phone = item.Phone,
                 Address = item.Address,
                 ZipCode = item.ZipCode,
-                Notes = item.Notes,
+                Notes = item.Notes ,
                 Id = item.Id,
                 CreatedDate = item.CreatedDate,
                 LastModifiedDate = item.LastModifiedDate,
@@ -151,7 +151,7 @@ namespace tantum.DirectBackendServices.ContentServices.Request.Mapper
 
 
         #region  history
-        public static TamTechSDK.Common.Services.ContentService.Request.Models.RequestHistoryDto MapToFrontendRequestHistoryDto(this TamTechBackendSDK.ContentService.Services.Requests.Models.RequestHistoryDto item)
+      public static TamTechSDK.Common.Services.ContentService.Request.Models.RequestHistoryDto MapToFrontendRequestHistoryDto(this TamTechBackendSDK.ContentService.Services.Requests.Models.RequestHistoryDto item)
         {
             return new TamTechSDK.Common.Services.ContentService.Request.Models.RequestHistoryDto
             {

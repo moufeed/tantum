@@ -52,16 +52,223 @@ msgstr "Subsidiaries"
 msgid "offices"
 msgstr "Offices"
 
-# app settings 
+#construction
+msgid "construction"
+msgstr "Construction"
 
-msgid "m_work_time"
-msgstr "9:00 AM – 7:00 PM"
+msgid "we_make"
+msgstr "we make"
+  
+msgid "great_projects"
+msgstr "great projects"
 
-msgid "phone_number"
-msgstr "0112002335"
+msgid "construction_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
 
-msgid "email_address"
-msgstr "info@tantumproj.com"
+msgid "construction_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed"
 
-msgid "MissionVisionSliderKey"
-msgstr "mission_vision"
+msgid "construction_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed"
+
+msgid "construction_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed"
+
+#events
+msgid "Event_we_make"
+msgstr "we make"
+
+msgid "Event_great_projects"
+msgstr "great projects"
+
+msgid "event_management_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+ 
+msgid "Event_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Event_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Event_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+#design_and_animation
+msgid "Design_we_make"
+msgstr "we make"
+
+msgid "Design_great_projects"
+msgstr "great projects"
+
+msgid "Design_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+
+msgid "Design_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Design_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Design_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+#smart system
+msgid "smart_we_make"
+msgstr "we make"
+
+msgid "smart_great_projects"
+msgstr "great projects"
+
+msgid "smart_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "smart_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "smart_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "smart_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+#GiftItems
+msgid "GiftItems_we_make"
+msgstr "we make"
+
+msgid "GiftItems_great_projects"
+msgstr "great projects"
+
+msgid "GiftItems_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "GiftItems_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "GiftItems_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "GiftItems_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+# SoftwareSolution
+msgid "SoftwareSolution_we_make"
+msgstr "we make"
+
+msgid "SoftwareSolution_great_projects"
+msgstr "great projects"
+
+msgid "SoftwareSolution_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "SoftwareSolution_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "SoftwareSolution_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "SoftwareSolution_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+#Telecommunications
+
+msgid "Telecommunications_we_make"
+msgstr "we make"
+
+msgid "Telecommunications_great_projects"
+msgstr "great projects"
+
+msgid "Telecommunications_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Telecommunications_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Telecommunications_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "Telecommunications_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+
+# InteriorDesign
+
+msgid "InteriorDesign_we_make"
+msgstr "we make"
+
+msgid "InteriorDesign_great_projects"
+msgstr "great projects"
+
+msgid "InteriorDesign_summary"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "InteriorDesign_our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "InteriorDesign_our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "InteriorDesign_contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+
+msgid "view_projects"
+msgstr "view projects"
+
+msgid "about_us_title"
+msgstr "<span>who</span> we are"
+
+msgid "our_services_title"
+msgstr "<span>our</span> services"
+
+msgid "our_services_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+ 
+msgid "our_portfolio_title"
+msgstr "<span>our</span> portfolio"
+
+msgid "our_portfolio_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+ 
+msgid "our_clients_title"
+msgstr "<span>our</span> Clients"
+
+msgid "our_clients_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+ 
+msgid "contact_us_title"
+msgstr "<span>contact</span> us"
+
+msgid "contact_us_text"
+msgstr "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut elit sed purus consequat imperdiet vel ac lacus."
+
+msgid "send"
+msgstr "Send"
+
+msgid "Index"
+msgstr "Index"
+
+msgid "Event-Management"
+msgstr "Event Management"
+
+msgid "Design-And-Animation"
+msgstr "Design And Animation"
+
+msgid "Smart-Systems"
+msgstr "Smart Systems"
+
+msgid "Construction"
+msgstr "Construction"
+
+msgid "Software-Solutions"
+msgstr "Software Solutions"
+
+msgid "Telecommunications"
+msgstr "Telecommunications"
+
+msgid "Gift-Items"
+msgstr "Gift Items"
+
+msgid "Interior-Design"
+msgstr "Interior Design"

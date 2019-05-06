@@ -1,0 +1,40 @@
+
+.contactus-area{
+    .title-section{
+        margin: rem(25px) 0;
+        h1{
+            margin-bottom: 0;
+        }
+    }
+    
+}
+.contact-item{
+    i{
+        color: $maincolor;
+        margin: rem(20px) 0;
+    }
+    address,a,span{
+        display: block;
+        font-size: rem(18px);
+    }
+    address{
+        width: 80%;
+        margin: auto;
+    }
+    a{
+        color: $dark_text;
+        &:hover{
+            color: $maincolor;
+        }
+    }
+    span{}
+}
+
+.btn-send {
+    background: $maincolor;
+    color: #fff;
+    &:hover{
+        background: darken($maincolor,15%);
+        color: #fff;
+    }
+}

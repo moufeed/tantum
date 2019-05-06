@@ -10,16 +10,16 @@ using TamTechSDK.Common.Services.ContentService.Sections.Models;
 
 namespace tantum.DirectBackendServices.ContentServices.Sections.Mapper
 {
-    public static class SectionsMapper
+    public  static class SectionsMapper 
     {
 
-
+        
 
         public static TamTechBackendSDK.ContentService.Services.Sections.Dtos.CreateSectionModel MapTobackendCreateSection(this TamTechSDK.Common.Services.ContentService.Sections.Models.CreateSectionDto item)
         {
             return new TamTechBackendSDK.ContentService.Services.Sections.Dtos.CreateSectionModel
             {
-
+                 
                 DisplayOrder = item.DisplayOrder,
                 Lang = item.Lang,
                 MainImage = item.MainImage,
@@ -53,7 +53,8 @@ namespace tantum.DirectBackendServices.ContentServices.Sections.Mapper
                 ModifiedDate = backend.ModifiedDate,
                 Locked = backend.Locked,
                 PublishedDate = backend.PublishedDate,
-                //  Posts = backend.Posts?.Select(p => p.MapToFrontendDto(backend.SlugHierarchy)).ToList() 
+                //  Posts = backend.Posts?.Select(p => p.MapToFrontendDto(backend.SlugHierarchy)).ToList() ,
+                Slugs = backend.Slugs?.Select(m => m.MapSlugsToFrontend()).ToList()
             };
         }
 
@@ -63,7 +64,7 @@ namespace tantum.DirectBackendServices.ContentServices.Sections.Mapper
             return new TamTechBackendSDK.ContentService.Services.Sections.Dtos.UpdateSectionModel
             {
                 Id = frontend.Id,
-                ParentId = frontend.ParentId,
+                ParentId=  frontend.ParentId,
                 DisplayOrder = frontend.DisplayOrder,
                 Lang = frontend.Lang,
                 MainImage = frontend.MainImage,
@@ -75,13 +76,13 @@ namespace tantum.DirectBackendServices.ContentServices.Sections.Mapper
             };
         }
 
-        public static TamTechSDK.Common.Services.ContentService.Sections.Models.SectionContainerDto MapToContainerDto(this TamTechBackendSDK.ContentService.Services.Sections.Dtos.SectionContainerDto item)
+        public static TamTechSDK.Common.Services.ContentService.Sections.Models.SectionContainerDto MapToContainerDto (this TamTechBackendSDK.ContentService.Services.Sections.Dtos.SectionContainerDto item)
         {
             return new TamTechSDK.Common.Services.ContentService.Sections.Models.SectionContainerDto
             {
                 SectionInfo = item.SectionInfo?.MapToFrontendDto(),
                 Sections = item.Sections != null ? item.Sections.Select(m => m.MapToFrontendDto()).ToList() : new List<SectionDto>(),
-                Posts = item.Posts != null ? item.Posts.Select(p => p.MapToFrontendDto()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Posts.Models.PostDto>()
+                Posts = item.Posts != null ? item.Posts.Select(p=> p.MapToFrontendDto()).ToList() : new List<TamTechSDK.Common.Services.ContentService.Posts.Models.PostDto>()
             };
         }
     }

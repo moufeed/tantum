@@ -14,7 +14,7 @@ namespace tantum.DirectBackendServices.ContentServices.Services
             return new RequestProviderResult<Guid>
             {
                 Success = true,
-                // Data = true
+               // Data = true
             };
         }
 
@@ -45,7 +45,7 @@ namespace tantum.DirectBackendServices.ContentServices.Services
             };
         }
 
-
+     
         public async Task<IRequestProviderResult<List<ServiceDto>>> GetAllAsync()
         {
 
@@ -73,7 +73,7 @@ namespace tantum.DirectBackendServices.ContentServices.Services
                         CreatedDate = DateTime.Now,
                         DisplayOrder = 3,
                         Content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+                        
                     },
                     new ServiceDto {
                         Id = new Guid("2688b521-760d-4e95-a879-89db1c009cc8"),
@@ -84,7 +84,7 @@ namespace tantum.DirectBackendServices.ContentServices.Services
                         CreatedDate = DateTime.Now,
                         DisplayOrder = 0,
                         Content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+                          
                     } ,
                     new ServiceDto {
                         Id = new Guid("3fd2b6e4-8585-4fe2-b81d-b41e1da25d29"),
@@ -95,13 +95,13 @@ namespace tantum.DirectBackendServices.ContentServices.Services
                         CreatedDate = DateTime.Now,
                         DisplayOrder = 0,
                         Content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+                        
                     }
                 }
             };
         }
 
-        public async Task<IRequestProviderResult<ServiceDto>> GetByIdAsync(Guid id, string lang)
+        public async Task<IRequestProviderResult<ServiceDto>> GetByIdAsync(Guid id ,string lang)
         {
             return new RequestProviderResult<ServiceDto>
             {
@@ -116,7 +116,7 @@ namespace tantum.DirectBackendServices.ContentServices.Services
                     CreatedDate = DateTime.Now,
                     DisplayOrder = 3,
                     Content = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+                    
                 }
             };
         }

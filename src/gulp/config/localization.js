@@ -23,6 +23,7 @@ msgstr ""
         "inputFiles" :[
             `${local_src}/en/admin.po`,
             `${local_src}/en/portal.po`,
+            `${local_src}/en/settings.po`,
             `${local_src}/en/custom.po`
         ]
     },{
@@ -30,6 +31,7 @@ msgstr ""
         "inputFiles" :[
             `${local_src}/ar/admin.po`,
             `${local_src}/ar/portal.po`,
+            `${local_src}/en/settings.po`,
             `${local_src}/ar/custom.po`
         ]
     }

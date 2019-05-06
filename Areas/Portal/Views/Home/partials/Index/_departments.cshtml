@@ -1,69 +1,322 @@
- 
 
-
-<if include-if="ViewBag.services != null">
- 
-    <section class="departments-area" id="departments-area">
-        <div class="container">
-            <header class="departments-header mb-5 text-center">
-                <h2 class="g_title text-uppercase fz-5"><strong>@Localizer["depratments"]</strong></h2>
-            </header>
-            <div class="row justify-content-center">
-
-                @if (ViewBag.services.Count > 0)
-                {
-
-                    foreach (ServiceDto item in ViewBag.services)
-                    {
-                <div class="col-md-6 col-lg-4 depart">
-                    <figure class="service-item d-flex justify-content-center align-items-center" >
-                        <div>
-                            <a asp-action="v" asp-controller="services" asp-route-slug="@item.Slug">
-                                @if (string.IsNullOrEmpty(item.MainImage))
-                                {
-                                    <img src="~/Portal/img/empty.jpg" />
-                                }
-                                else
-                                {
-                                    <img src="@item.MainImage" alt="@item.Title" />
-                                }
-                            </a>
-                        </div>
-                        
-                        <figcaption>
-                            <div class="row no-gutters justify-content-between align-items-center">
-                                <div class="col-12 col-md-auto">
-                                    <h3 class="text-capitalize"><a asp-action="v" asp-controller="services" asp-route-slug="@item.Slug">@item.Title</a></h3>
-                                    <a asp-action="v" asp-controller="services" class="arrow" asp-route-slug="@item.Slug">
-                                        <i class="fa fa-long-arrow-right"></i>
+ @using tantum.Custom
+<section class="departments-area" id="departments-area">
+    <div class="container">
+        <header class="departments-header mb-5 text-center">
+            <h2 class="g_title text-uppercase fz-5"><strong>@Localizer["depratments"]</strong></h2>
+        </header>
+        <div class="row justify-content-center">
+            @*Construction *@
+            <div class="col-md-6 col-lg-4 depart ">
+                <figure class="service-item d-flex justify-content-center align-items-center construction">
+                    <div>
+                        <a asp-action="@Departments.Construction" asp-controller="home">
+                            <img src="~/Portal/img/departments/construction/thumb.jpg" alt="@Departments.Construction" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.Construction" asp-controller="home">
+                                        @Localizer[Departments.Construction]
                                     </a>
-                                </div>
-                                <if include-if="@item.IconVisibility">
+                                </h3>
+                                <a asp-action="@Departments.Construction" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.Construction" asp-controller="services">
+                                    <img src="~/Portal/img/departments/construction/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+
+            @* InteriorDesign *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center interior">
+                    <div>
+                        <a asp-action="@Departments.InteriorDesign" asp-controller="home">
+                            <img src="~/Portal/img/departments/interior_design/thumb.jpg" alt="@Departments.InteriorDesign" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.InteriorDesign" asp-controller="home">
+                                        @Localizer[Departments.InteriorDesign]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.InteriorDesign" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.InteriorDesign" asp-controller="services">
+                                    <img src="~/Portal/img/departments/interior_design/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            @* telecommunications *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center telecommunications">
+                    <div>
+                        <a asp-action="@Departments.Telecommunications" asp-controller="home">
+                            <img src="~/Portal/img/departments/telecommunications/thumb.jpg" alt="@Departments.Telecommunications" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.Telecommunications" asp-controller="home">
+                                        @Localizer[Departments.Telecommunications]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.Telecommunications" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.Telecommunications" asp-controller="services">
+                                    <img src="~/Portal/img/departments/telecommunications/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            @* EventManagement *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center events">
+                    <div>
+                        <a asp-action="@Departments.EventManagement" asp-controller="home">
+                            <img src="~/Portal/img/departments/events/thumb.jpg" alt="@Departments.EventManagement" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.EventManagement" asp-controller="home">
+                                        @Localizer[Departments.EventManagement]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.EventManagement" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.EventManagement" asp-controller="services">
+                                    <img src="~/Portal/img/departments/events/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            @* software_solutions *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center solutions">
+                    <div>
+                        <a asp-action="@Departments.SoftwareSolutions" asp-controller="home">
+                            <img src="~/Portal/img/departments/software_solutions/thumb.jpg" alt="@Departments.SoftwareSolutions" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.SoftwareSolutions" asp-controller="home">
+                                        @Localizer[Departments.SoftwareSolutions]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.SoftwareSolutions" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.SoftwareSolutions" asp-controller="services">
+                                    <img src="~/Portal/img/departments/software_solutions/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            @* GiftItems *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center gift">
+                    <div>
+                        <a asp-action="@Departments.GiftItems" asp-controller="home">
+                            <img src="~/Portal/img/departments/gift_items/thumb.jpg" alt="@Departments.GiftItems" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.GiftItems" asp-controller="home">
+                                        @Localizer[Departments.GiftItems]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.GiftItems" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.GiftItems" asp-controller="services">
+                                    <img src="~/Portal/img/departments/gift_items/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            @* DesignAndAnimation *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center design">
+                    <div>
+                        <a asp-action="@Departments.DesignAndAnimation" asp-controller="home">
+                            <img src="~/Portal/img/departments/design_and_animation/thumb.jpg" alt="@Departments.DesignAndAnimation" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.DesignAndAnimation" asp-controller="home">
+                                        @Localizer[Departments.DesignAndAnimation]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.DesignAndAnimation" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.DesignAndAnimation" asp-controller="services">
+                                    <img src="~/Portal/img/departments/design_and_animation/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+
+            @* SmartSystems *@
+            <div class="col-md-6 col-lg-4 depart">
+                <figure class="service-item d-flex justify-content-center align-items-center systems">
+                    <div>
+                        <a asp-action="@Departments.SmartSystems" asp-controller="home">
+                            <img src="~/Portal/img/departments/smart_systems/thumb.jpg" alt="@Departments.SmartSystems" />
+                        </a>
+                    </div>
+                    <figcaption>
+                        <div class="row no-gutters justify-content-between align-items-center">
+                            <div class="col-12 col-md-auto">
+                                <h3 class="text-capitalize">
+                                    <a asp-action="@Departments.SmartSystems" asp-controller="home">
+                                        @Localizer[Departments.SmartSystems]
+                                    </a>
+                                </h3>
+                                <a asp-action="@Departments.SmartSystems" asp-controller="home" class="arrow">
+                                    <i class="fa fa-long-arrow-right"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-auto">
+                                <a asp-action="@Departments.SmartSystems" asp-controller="services">
+                                    <img src="~/Portal/img/departments/smart_systems/d-icon.png" alt="" class="icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        </div>
+</section>
+
+
+
+
+
+@*<if include-if="ViewBag.services != null">
+
+        <section class="departments-area" id="departments-area">
+            <div class="container">
+                <header class="departments-header mb-5 text-center">
+                    <h2 class="g_title text-uppercase fz-5"><strong>@Localizer["depratments"]</strong></h2>
+                </header>
+                <div class="row justify-content-center">
+
+                    @if (ViewBag.services.Count > 0)
+                    {
+
+                        foreach (ServiceDto item in ViewBag.services)
+                        {
+                    <div class="col-md-6 col-lg-4 depart">
+                        <figure class="service-item d-flex justify-content-center align-items-center" >
+                            <div>
+                                <a asp-action="v" asp-controller="services" asp-route-slug="@item.Slug">
+                                    @if (string.IsNullOrEmpty(item.MainImage))
+                                    {
+                                        <img src="~/Portal/img/empty.jpg" />
+                                    }
+                                    else
+                                    {
+                                        <img src="@item.MainImage" alt="@item.Title" />
+                                    }
+                                </a>
+                            </div>
+
+                            <figcaption>
+                                <div class="row no-gutters justify-content-between align-items-center">
                                     <div class="col-12 col-md-auto">
-                                        <a asp-action="v" asp-controller="services" asp-route-slug="@item.Slug">
-                                             <i class="icon fa @item.Icon"></i>
+                                        <h3 class="text-capitalize"><a asp-action="v" asp-controller="services" asp-route-slug="@item.Slug">@item.Title</a></h3>
+                                        <a asp-action="v" asp-controller="services" class="arrow" asp-route-slug="@item.Slug">
+                                            <i class="fa fa-long-arrow-right"></i>
                                         </a>
                                     </div>
-                                </if>
-                            </div>
-                        </figcaption>
-                       
-                    </figure>
+                                    <if include-if="@item.IconVisibility">
+                                        <div class="col-12 col-md-auto">
+                                            <a asp-action="v" asp-controller="services" asp-route-slug="@item.Slug">
+                                                 <i class="icon fa @item.Icon"></i>
+                                            </a>
+                                        </div>
+                                    </if>
+                                </div>
+                            </figcaption>
+
+                        </figure>
+
+                    </div>
+
+
+
+                        }
+
+                    }
+
+
+
 
                 </div>
 
 
-                       
-                    }
-
-                }
-
-
-
-
             </div>
-
-           
-        </div>
-    </section>
-</if>
+        </section>
+    </if>*@

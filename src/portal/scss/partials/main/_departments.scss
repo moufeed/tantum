@@ -1,0 +1,129 @@
+.departments-area{
+    padding: rem(75px) 0;
+}
+ 
+.service-item{
+   
+
+    &.construction{
+        figcaption{
+            background:rgba($red,.85);
+        }
+    }
+    &.interior{
+        figcaption{
+            background: rgba( $darkgreen,.85);
+        }
+    }
+    &.telecommunications{
+        figcaption{
+            background: rgba( $darkblue,.85) ;
+        }
+    }
+    &.events{
+        figcaption{
+            background: rgba( $lighblue,.85) ;
+        }
+    }
+    &.solutions{
+        figcaption{
+            background: rgba( $green ,.85) ;
+        }
+    }
+    &.gift{
+        figcaption{
+            background: rgba( $darkred ,.85);
+        }
+    }
+    &.design{
+        figcaption{
+            background: rgba($red,.85) ;
+        }
+    }
+    &.systems{
+        figcaption{
+            background: rgba( $darkgreen,.85) ;
+        }
+    }
+
+    width: 94%;
+    margin:rem(30px) auto;
+    background: $lightgray;
+    position: relative;
+    >div{
+        overflow: hidden;
+        @include size(100% , 300px );
+    }
+    img:not(.icon){
+        height: 100%;
+        width: auto;
+        min-width: 100%;
+    }
+    .icon{
+        width: 50px; 
+        height: auto;
+    }
+    figcaption{
+        position: absolute;
+        #{$left} : rem(-15px);
+        background: rgba($black,.5);
+        bottom: rem(-25px);
+        width: 100%;
+        padding:rem(25px) rem(15px);
+        color: $white;
+        h3{
+            font-size: rem(18px);
+            a{
+                color: $white;
+            }
+        }
+        .arrow{
+            color: $white;
+            .fa{
+                position: relative;
+                margin-#{$left}: rem(15px);
+                &:before{
+                    content: if-ltr('\f178','\f177');
+                    z-index: 1;
+                    position: relative;
+                }
+                &:after{
+                    @include absolute(top $left , -4px -10px);
+                    @include size(18px , 25px);
+                    background: rgba($black,.2);
+                    content: '';
+                    border-radius: 50%;
+                    z-index: 0;
+                }
+            }
+        }
+    }
+    .icon{
+        font-size: rem(50px);
+        color: rgba($white,.9);
+    }
+}
+
+.depart{
+    $x: 1;
+    &:nth-child(2),
+    &:nth-child(5),
+    &:nth-child(8),
+    &:nth-child(11){
+        figcaption{
+            bottom: auto;
+            top: rem(-25px);
+        }
+    }   
+
+     /* @each $color in $departments_color {
+
+        &:nth-child(#{$x}){
+            figcaption{
+                background: $color;
+            }
+        }   
+
+        $x : $x+1;
+    }  */
+}
