@@ -24,16 +24,17 @@
                     </div>
 
 
-                    
+
 
                     <div class="form-row form-group">
                         <div class="col-12 col-md-6">
-                            <input type="text" class="form-control" name="Subject" placeholder="@Localizer["your_subject"]" required>
+                            <input type="text" class="form-control" name="Subject" placeholder="@Localizer[" your_subject"]" required>
                         </div>
                         <div class="col col-md-6">
-                            <input type="tel" class="form-control" name="Mobile" placeholder="@Localizer["your_phone_number"]">
+                            <input type="tel" class="form-control" name="Mobile" placeholder="@Localizer[" your_phone_number"]">
                         </div>
                     </div>
+
 
                     <div class="form-group mt-3" style="position:relative">
                         <textarea class="form-control" rows="5" name="Message" placeholder="@Localizer["your_message"]"></textarea>
@@ -41,6 +42,10 @@
                             <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
                             <i class="fa fa-spinner fa-pulse d-none"></i>
                         </button>
+                    </div>
+                    <div class="form-group">
+                        <div id="grecaptcha" data-callback="RecaptchaCallback"></div>
+                        <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
                     </div>
                 </form>
                 <div class="alert alert-success alert-dismissible fade d-none" role="alert" id="alert-success">

@@ -1,6 +1,16 @@
 
+var loadGrecaptcha = function(val) {
+    grecaptcha.render('grecaptcha', {
+    'sitekey' : '6LcS_qcUAAAAAHrr9QIGH1VTptBSz_4kEpu4w_LV'
+});
+};
+
+var RecaptchaCallback = function(){
+$('#hiddenRecaptcha').val(true).valid()
+}
+
 if(site_lang == 'ar'){
-    $.extend( $.validator.messages, {
+    $.extend( $.validator.messages, { 
         required: "هذا الحقل إلزامي",
         remote: "يرجى تصحيح هذا الحقل للمتابعة",
         email: "رجاء إدخال عنوان بريد إلكتروني صحيح",
@@ -41,7 +51,17 @@ var options = {
 }
 
 
-$('#DepartForm').validate({...options,submitHandler: (form)=> {
+$('#DepartForm').validate({...options,
+    rules :{
+        hiddenRecaptcha: {
+            required: function () {
+                if (grecaptcha.getResponse() == '') 
+                    return true;
+                return false;                     
+            }
+        }  
+    },
+    submitHandler: (form)=> {
     var $form = $(form);
     var btn = $form.find('.btn-send');
     btn.attr('disabled' ,"disabled");
@@ -74,7 +94,17 @@ $('#DepartForm').validate({...options,submitHandler: (form)=> {
 
 
 $('#ContactForm').validate(
-    { ...options,submitHandler: (form)=> {
+    { ...options,
+        rules :{
+            hiddenRecaptcha: {
+                required: function () {
+                    if (grecaptcha.getResponse() == '') 
+                        return true;
+                    return false;                     
+                }
+            } 
+        },
+        submitHandler: (form)=> {
                  
             var $form = $(form);
             var btn = $form.find('.float-btn');

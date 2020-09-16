@@ -67,9 +67,18 @@
                 <textarea class="form-control" rows="8" name="Message" placeholder="@Localizer["your_message"]" required></textarea>
 
             </div>
-            <div class="form-group @(lang == "ar" ? "text-left" :"text-right")">
-                <button type="submit" class="btn btn-send ">@Localizer["send"]</button>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="grecaptcha" data-callback="RecaptchaCallback"></div>
+                        <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha">
+                    </div>
+                    <div class=" col-md-6 @(lang == "ar" ? "text-left" :"text-right")">
+                        <button type="submit" class="btn btn-send ">@Localizer["send"]</button>
+                    </div>
+                </div>
             </div>
+           
         </form>
 
     </div>
